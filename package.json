@@ -1,0 +1,49 @@
+{
+  "name": "zrx-tracker-event-extractor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "precommit": "lint-staged",
+    "start": "nodemon src",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://cbovis@github.com/cbovis/zrx-tracker-event-extractor.git"
+  },
+  "author": "Craig Bovis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbovis/zrx-tracker-event-extractor/issues"
+  },
+  "homepage": "https://github.com/cbovis/zrx-tracker-event-extractor#readme",
+  "dependencies": {
+    "0x.js": "^0.38.6",
+    "bluebird": "^3.5.1",
+    "delay": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.2.4",
+    "promise-poller": "^1.6.0",
+    "rollbar": "^2.4.2",
+    "web3": "^0.20.6"
+  },
+  "devDependencies": {
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "husky": "^0.14.3",
+    "jest": "^23.4.1",
+    "lint-staged": "^7.2.0",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.13.7"
+  }
+}
