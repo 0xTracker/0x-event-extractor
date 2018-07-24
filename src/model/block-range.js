@@ -6,6 +6,7 @@ const schema = Schema({
   dateProcessed: Date,
   events: Number,
   fromBlock: Number,
+  protocolVersion: { default: 1, index: true, type: Number },
   toBlock: { type: Number, index: true },
 });
 

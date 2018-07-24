@@ -7,6 +7,7 @@ const schema = Schema({
   data: { type: Schema.Types.Mixed },
   fillCreated: { type: Boolean, index: true, default: false },
   logIndex: { type: Number, index: true },
+  protocolVersion: { default: 1, index: true, type: Number },
   transactionHash: { type: String, index: true },
   type: String,
 });

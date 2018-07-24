@@ -8,7 +8,24 @@ const EXCLUDE_ORDERS = [
   '0x1cbf70d8f6dfee99ee740f4e0e90a97e8e1f0c38a14b8604adadbe28469c0ffa',
 ];
 
-const persistEvents = async events => {
+const getEventData = (protocolVersion, event) => {
+  if (protocolVersion !== 1) {
+    throw new Error(`Events from v${protocolVersion} are not supported.`);
+  }
+
+  return {
+    ...event,
+    args: {
+      ...event.args,
+      filledMakerTokenAmount: event.args.filledMakerTokenAmount.toNumber(),
+      filledTakerTokenAmount: event.args.filledTakerTokenAmount.toNumber(),
+      paidMakerFee: event.args.paidMakerFee.toNumber(),
+      paidTakerFee: event.args.paidTakerFee.toNumber(),
+    },
+  };
+};
+
+const persistEvents = async (protocolVersion, events) => {
   const web3Client = web3.getClient();
   const eventModels = flow(
     map(
@@ -17,17 +34,9 @@ const persistEvents = async events => {
           ? null
           : {
               blockNumber: web3Client.toDecimal(event.blockNumber),
-              data: {
-                ...event,
-                args: {
-                  ...event.args,
-                  filledMakerTokenAmount: event.args.filledMakerTokenAmount.toNumber(),
-                  filledTakerTokenAmount: event.args.filledTakerTokenAmount.toNumber(),
-                  paidMakerFee: event.args.paidMakerFee.toNumber(),
-                  paidTakerFee: event.args.paidTakerFee.toNumber(),
-                },
-              },
+              data: getEventData(protocolVersion, event),
               logIndex: event.logIndex,
+              protocolVersion,
               transactionHash: event.transactionHash,
               type: event.event,
             },
