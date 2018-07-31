@@ -1,5 +1,8 @@
 require('dotenv-safe').config({
-  example: process.env.CI ? '.env.ci.example' : '.env.example',
+  example:
+    process.env.NODE_ENV === 'production'
+      ? '.env.prod.example'
+      : '.env.example',
 });
 
 const config = require('config');
