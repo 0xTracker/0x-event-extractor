@@ -32,6 +32,7 @@
     "mongoose": "^5.2.4",
     "promise-poller": "^1.6.0",
     "rollbar": "^2.4.2",
+    "signale": "^1.2.1",
     "web3": "^0.20.6"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const signale = require('signale');
 
 const logger = require('./logger');
 
@@ -9,7 +10,7 @@ module.exports = {
     mongoose.connect(connectionString);
 
     mongoose.connection.on('connected', () => {
-      console.log('[mongodb] connection established');
+      signale.scope('mongodb').success('database connection established');
     });
 
     mongoose.connection.on('error', err => {
@@ -17,14 +18,7 @@ module.exports = {
     });
 
     mongoose.connection.on('disconnected', () => {
-      console.log('[mongodb] disconnected');
-    });
-
-    process.on('SIGINT', () => {
-      mongoose.connection.close(() => {
-        console.log('[mongodb] disconnection through app termination');
-        process.exit(0);
-      });
+      signale.scope('mongodb').warn('database connection terminated');
     });
   },
   disconnect: () => {

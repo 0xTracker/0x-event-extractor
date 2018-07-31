@@ -1,7 +1,10 @@
 const _ = require('lodash');
 const Rollbar = require('rollbar');
+const signale = require('signale');
 
 let rollbar;
+
+const logger = signale.scope('application');
 
 const configure = ({ rollbarToken }) => {
   if (_.isString(rollbarToken)) {
@@ -12,8 +15,8 @@ const configure = ({ rollbarToken }) => {
     });
   }
 
-  process.on('uncaughtException', console.error);
-  process.on('unhandledRejection', console.error);
+  process.on('uncaughtException', logger.error);
+  process.on('unhandledRejection', logger.error);
 };
 
 const logError = (error, metadata = {}) => {
@@ -21,7 +24,7 @@ const logError = (error, metadata = {}) => {
     rollbar.error(error, metadata.request);
   }
 
-  console.error(error);
+  logger.error(error);
 };
 
 module.exports = {
