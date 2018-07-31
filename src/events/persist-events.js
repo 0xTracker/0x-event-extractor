@@ -52,6 +52,8 @@ const persistEvents = async (protocolVersion, events) => {
       throw error;
     }
   }
+
+  return eventModels.length;
 };
 
 module.exports = persistEvents;

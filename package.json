@@ -25,8 +25,9 @@
   "dependencies": {
     "0x.js": "^0.38.6",
     "bluebird": "^3.5.1",
+    "config": "^2.0.1",
     "delay": "^3.0.0",
-    "dotenv": "^6.0.0",
+    "dotenv-safe": "^6.0.0",
     "lodash": "^4.17.10",
     "mongoose": "^5.2.4",
     "promise-poller": "^1.6.0",

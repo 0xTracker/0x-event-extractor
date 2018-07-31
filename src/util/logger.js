@@ -1,9 +1,10 @@
+const _ = require('lodash');
 const Rollbar = require('rollbar');
 
 let rollbar;
 
 const configure = ({ rollbarToken }) => {
-  if (process.env.NODE_ENV !== 'development') {
+  if (_.isString(rollbarToken)) {
     rollbar = new Rollbar({
       accessToken: rollbarToken,
       captureUncaught: true,

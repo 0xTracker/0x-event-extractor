@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const config = require('config');
 
 const BlockRange = require('../model/block-range');
 
@@ -12,7 +12,7 @@ const getLastProcessedBlock = async protocolVersion => {
   );
 
   if (lastRange === null) {
-    return _.toNumber(process.env.GENESIS_BLOCK);
+    return config.get('genesisBlock');
   }
 
   return lastRange.toBlock;

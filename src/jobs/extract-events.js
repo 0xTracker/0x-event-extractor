@@ -1,11 +1,10 @@
 const { clamp } = require('lodash');
 
-const _ = require('lodash');
+const config = require('config');
 
 const BlockRange = require('../model/block-range');
 const getCurrentBlock = require('../util/ethereum/get-current-block');
 const getLastProcessedBlock = require('../events/get-last-processed-block');
-const getProtocolVersion = require('../util/get-protocol-version');
 const persistEvents = require('../events/persist-events');
 const zeroEx = require('../util/ethereum/0x');
 
@@ -22,15 +21,12 @@ const getEvents = async (protocolVersion, fromBlock, toBlock) => {
 };
 
 const saveEvents = async () => {
-  const maxChunkSize = _.toNumber(process.env.MAX_CHUNK_SIZE);
-  const minConfirmations = _.toNumber(process.env.MIN_CONFIRMATIONS);
-  const protocolVersion = getProtocolVersion();
-
+  const protocolVersion = config.get('protocolVersion');
   const currentBlock = await getCurrentBlock();
-  const maxBlock = currentBlock - minConfirmations;
+  const maxBlock = currentBlock - config.get('minConfirmations');
   const lastBlock = await getLastProcessedBlock(protocolVersion);
   const fromBlock = lastBlock + 1;
-  const toBlock = clamp(fromBlock + maxChunkSize, 1, maxBlock);
+  const toBlock = clamp(fromBlock + config.get('maxChunkSize'), 1, maxBlock);
 
   console.log(`[zrx-tracker] current block is ${currentBlock}`);
 
@@ -47,8 +43,11 @@ const saveEvents = async () => {
 
   if (events.length > 0) {
     console.log(`[zrx-tracker] processing ${events.length} events`);
-    await persistEvents(protocolVersion, events);
-    console.log(`[zrx-tracker] saved ${events.length} events`);
+    const savedCount = await persistEvents(protocolVersion, events);
+    console.log(
+      `[zrx-tracker] saved ${savedCount} events, ${events.length -
+        savedCount} were ignored`,
+    );
   } else {
     console.log('[zrx-tracker] no new events');
   }

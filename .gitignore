@@ -1,3 +1,4 @@
+config/local.js
 coverage
 node_modules/
 .env
