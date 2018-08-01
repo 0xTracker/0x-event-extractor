@@ -14,7 +14,10 @@ const logger = require('./util/logger');
 const web3 = require('./util/ethereum/web3');
 const zeroEx = require('./util/ethereum/0x.js');
 
-logger.configure({ rollbarToken: config.get('rollbar.token') });
+logger.configure({
+  bugsnagToken: config.get('bugsnag.token'),
+  rollbarToken: config.get('rollbar.token'),
+});
 web3.configure({ endpoint: config.get('web3.endpoint') });
 zeroEx.configure({ networkId: config.get('web3.networkId') });
 db.connect(config.get('database.connectionString'));
