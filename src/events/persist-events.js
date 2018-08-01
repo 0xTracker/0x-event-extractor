@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const { flow, map, reject } = require('lodash/fp');
 
 const Event = require('../model/event');
@@ -23,14 +22,7 @@ const persistEvents = async (protocolVersion, events) => {
     })),
   )(events);
 
-  try {
-    await Event.collection.insert(eventDocuments);
-  } catch (error) {
-    // Ignore duplicate key errors
-    if (_.isArray(error.writeErrors) && error.writeErrors[0].code !== 11000) {
-      throw error;
-    }
-  }
+  await Event.collection.insert(eventDocuments);
 
   return eventDocuments.length;
 };
