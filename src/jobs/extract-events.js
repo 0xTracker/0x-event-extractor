@@ -12,13 +12,9 @@ const zeroEx = require('../util/ethereum/0x');
 const logger = signale.scope('extract events');
 
 const getEvents = async (protocolVersion, fromBlock, toBlock) => {
-  if (protocolVersion !== 1) {
-    throw new Error(`Events from v${protocolVersion} are not supported.`);
-  }
-
   const events = await zeroEx
     .getClient()
-    .exchange.getLogsAsync('LogFill', { fromBlock, toBlock }, {});
+    .exchange.getLogsAsync(config.get('eventType'), { fromBlock, toBlock }, {});
 
   return events;
 };

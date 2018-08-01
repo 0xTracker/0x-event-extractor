@@ -4,7 +4,8 @@ module.exports = {
   database: {
     connectionString: process.env.CONNECTION_STRING,
   },
-  genesisBlock: 4159599,
+  eventType: 'LogFill',
+  genesisBlock: 4145578,
   maxChunkSize: 10000,
   minConfirmations: 12,
   pollingInterval: 30000,
