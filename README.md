@@ -6,9 +6,7 @@ NodeJS worker application built for [0x Tracker](https://0xtracker.com) which ex
 
 The extractor runs on a configurable interval, scraping a batch of events from the blockchain using the `getLogsAsync` method of 0x.js. Events are persisted to MongoDB and the scraped block range is also logged to ensure the same blocks don't get scraped twice.
 
-# 🗃 Versioning
-
-Two versions of the extractor exist in separate branches; one for V1 (`master`) of the 0x protocol and one for V2 (`master-v2`). These branches will be reorganised once V2 is released on mainnet. Support for V1 may be removed in the future once the majority of events are being processed through V2 of the protocol.
+Two versions of the extractor exist in separate branches; one for V1 of the 0x protocol (`master`) and one for V2 (`master-v2`). These branches will be reorganised once V2 is released on mainnet. Support for V1 may be removed in the future once the majority of events are being processed through V2 of the protocol.
 
 # 👮‍♂️ Requirements
 
