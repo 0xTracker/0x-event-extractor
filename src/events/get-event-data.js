@@ -2,10 +2,10 @@ const getEventData = event => ({
   ...event,
   args: {
     ...event.args,
-    filledMakerTokenAmount: event.args.filledMakerTokenAmount.toNumber(),
-    filledTakerTokenAmount: event.args.filledTakerTokenAmount.toNumber(),
-    paidMakerFee: event.args.paidMakerFee.toNumber(),
-    paidTakerFee: event.args.paidTakerFee.toNumber(),
+    makerAssetFilledAmount: event.args.makerAssetFilledAmount.toNumber(),
+    takerAssetFilledAmount: event.args.takerAssetFilledAmount.toNumber(),
+    makerFeePaid: event.args.makerFeePaid.toNumber(),
+    takerFeePaid: event.args.takerFeePaid.toNumber(),
   },
 });
 
