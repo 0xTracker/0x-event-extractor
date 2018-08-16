@@ -1,5 +1,5 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "prHourlyLimit": 0,
+  "rebaseStalePrs": true
 }
