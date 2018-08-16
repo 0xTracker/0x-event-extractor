@@ -12,7 +12,7 @@ Two versions of the extractor exist in separate branches; one for V1 of the 0x p
 
 To run the project locally you'll need the following installed:
 
-- NodeJS v8.11.1+
+- NodeJS v8.11.4
 - MongoDB
 
 The project also has support for the following development tools which you may wish to take advantage of:
