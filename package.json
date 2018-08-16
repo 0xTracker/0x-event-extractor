@@ -1,7 +1,7 @@
 {
-  "name": "zrx-tracker-event-extractor",
+  "name": "0x-event-extractor",
   "version": "1.0.0",
-  "description": "",
+  "description": "NodeJS worker application built for 0x Tracker which extracts 0x fill events from the Ethereum blockchain and persists them to MongoDB.",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint .",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://cbovis@github.com/cbovis/zrx-tracker-event-extractor.git"
+    "url": "git+https://cbovis@github.com/cbovis/0x-event-extractor.git"
   },
   "author": "Craig Bovis",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/cbovis/zrx-tracker-event-extractor/issues"
+    "url": "https://github.com/cbovis/0x-event-extractor/issues"
   },
-  "homepage": "https://github.com/cbovis/zrx-tracker-event-extractor#readme",
+  "homepage": "https://github.com/cbovis/0x-event-extractor#readme",
   "dependencies": {
     "0x.js": "^0.38.6",
     "bluebird": "^3.5.1",
