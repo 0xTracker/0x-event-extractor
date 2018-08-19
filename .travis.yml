@@ -4,8 +4,6 @@ cache:
     - 'node_modules'
 jobs:
   include:
-    - stage: test
-      script: npm test
     - stage: lint files
       script: npm run lint:js
     - stage: check licenses
