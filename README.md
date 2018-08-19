@@ -1,6 +1,6 @@
 # 0x Event Extractor
 
-[![Travis (.org)](https://img.shields.io/travis/0xtracker/0x-event-extractor.svg?style=flat-square)](https://travis-ci.org/0xTracker/0x-event-extractor)
+[![Travis (.org)](https://img.shields.io/travis/0xTracker/0x-event-extractor.svg?style=flat-square)](https://travis-ci.org/0xTracker/0x-event-extractor)
 [![David](https://img.shields.io/david/0xtracker/0x-event-extractor.svg?style=flat-square)](https://github.com/0xTracker/0x-event-extractor)
 
 > NodeJS worker originally built for [0x Tracker](https://0xtracker.com) which extracts [0x](https://0xproject.com) fill events from the Ethereum blockchain and persists them to MongoDB. Support for both V1 and V2 of the 0x protocol is included with events tagged against the protocol version they belong to.
