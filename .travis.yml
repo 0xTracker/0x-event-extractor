@@ -2,10 +2,7 @@ language: node_js
 cache:
   directories:
     - 'node_modules'
-jobs:
-  include:
-    - stage: quality checks
-    - script: npm run lint:js
-      name: lint files
-    - script: npm run lint:licenses
-      name: check licenses
+install: npm install
+script:
+  - npm run lint
+  - npm run check-licenses
