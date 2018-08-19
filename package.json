@@ -4,8 +4,8 @@
   "description": "NodeJS worker application built for 0x Tracker which extracts 0x fill events from the Ethereum blockchain and persists them to MongoDB.",
   "main": "src/index.js",
   "scripts": {
-    "lint:js": "eslint .",
-    "lint:licenses": "license-checker --onlyAllow \"MIT;ISC;BSD-2-Clause;Apache-2.0;LGPL-3.0;Unlicense;BSD-3-Clause;MPL-2.0;Public Domain;WTFPL;CC0-1.0;CC-BY-3.0;BSD*;BSD;Custom: https://secure.travis-ci.org/defunctzombie/node-uuid.png\" --summary",
+    "check-licenses": "license-checker --onlyAllow \"MIT;ISC;BSD-2-Clause;Apache-2.0;LGPL-3.0;Unlicense;BSD-3-Clause;MPL-2.0;Public Domain;WTFPL;CC0-1.0;CC-BY-3.0;BSD*;BSD;Custom: https://secure.travis-ci.org/defunctzombie/node-uuid.png\" --summary",
+    "lint": "eslint .",
     "precommit": "lint-staged",
     "start": "node .",
     "test": "jest",
@@ -39,7 +39,7 @@
     "web3": "0.20.7"
   },
   "devDependencies": {
-    "eslint": "5.3.0",
+    "eslint": "5.4.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-config-prettier": "3.0.1",
     "eslint-plugin-import": "2.14.0",
