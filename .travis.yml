@@ -7,4 +7,4 @@ jobs:
     - stage: lint files
       script: npm run lint:js
     - stage: check licenses
-      script: npm lint:licenses
+      script: npm run lint:licenses
