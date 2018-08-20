@@ -33,7 +33,7 @@ You may find an issue is assigned. Please double-check before starting on this i
 
 ### Say hi
 
-Come over and say hi anytime you feel like on [Gitter](https://gitter.im/0xtracker/general).
+Come over and say hi anytime you feel like on [Gitter](https://gitter.im/0x-tracker/general).
 
 ### Submitting an issue
 
@@ -49,6 +49,7 @@ Come over and say hi anytime you feel like on [Gitter](https://gitter.im/0xtrack
 - Non-trivial changes are often best discussed in an issue first, to prevent you from doing unnecessary work
 - If this is your first time submitting to an Open Source project then read the [Github guide to opening a pull request](https://opensource.guide/how-to-contribute/#opening-a-pull-request)
 - Use a descriptive title for the pull request and commits
-- You might be asked to do changes to your pull request, you can do that by just [updating the existing one](https://github.com/RichardLitt/docs/blob/master/amending-a-commit-guide.md)
+- Follow the pull request template for writing a description
+- You might be asked to do changes to your pull request, please update your existing PR rather than creating a new one
 
 > Inspired by [Signale](https://github.com/klauscfhq/signale/blob/master/contributing.md)'s contributing.md
