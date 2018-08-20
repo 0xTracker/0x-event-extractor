@@ -8,7 +8,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### Improve documentation
 
-Typo corrections, error fixes, better explanations, more examples etc. Open an issue regarding anything that you think it could be improved! You can use the [`documentation` label](https://github.com/0xTracker/0x-event-extractor/labels/%F0%9F%93%9D%20Documentation) to find out what others have suggested!
+Typo corrections, error fixes, better explanations, more examples etc. Open an issue regarding anything that you think it could be improved! You can use the [`documentation` label](https://github.com/0xTracker/0x-event-extractor/labels/Documentation) to find out what others have suggested!
 
 ### Improve issues
 
@@ -18,16 +18,16 @@ Sometimes reported issues lack information, are not reproducible, or are even pl
 
 We're always looking for more opinions on discussions in the issue tracker. It's a good opportunity to influence the future direction of the project.
 
-The [`question` label](https://github.com/0xTracker/0x-event-extractor/labels/%E2%9D%93%20Question) is a good place to find ongoing discussions.
+The [`question` label](https://github.com/0xTracker/0x-event-extractor/labels/Question) is a good place to find ongoing discussions.
 
 ### Write code
 
 You can use issue labels to discover issues you could help us out with!
 
-- [`feature request` issues](https://github.com/0xTracker/0x-event-extractor/labels/%F0%9F%91%B7%E2%80%8D%E2%99%82%EF%B8%8F%20Feature%20Request) are features we are open to including
-- [`bug` issues](https://github.com/0xTracker/0x-event-extractor/labels/%F0%9F%90%9B%20Bug%20Fix) are known bugs we would like to fix
-- [`future feature` issues](https://github.com/0xTracker/0x-event-extractor/labels/%F0%9F%A4%96%20Future%20Feature) are those that we'd like to get to, but not anytime soon. Please check before working on these since we may not yet want to take on the burden of supporting those features
-- on the [`help wanted`](https://github.com/0xTracker/0x-event-extractor/labels/%F0%9F%99%8F%20Help%20Wanted) label you can always find something exciting going on
+- [`feature request` issues](https://github.com/0xTracker/0x-event-extractor/labels/Feature%20Request) are features we are open to including
+- [`bug` issues](https://github.com/0xTracker/0x-event-extractor/labels/Bug) are known bugs we would like to fix
+- [`future feature` issues](https://github.com/0xTracker/0x-event-extractor/labels/Future%20Feature) are those that we'd like to get to, but not anytime soon. Please check before working on these since we may not yet want to take on the burden of supporting those features
+- on the [`help wanted`](https://github.com/0xTracker/0x-event-extractor/labels/Help%20Wanted) label you can always find something exciting going on
 
 You may find an issue is assigned. Please double-check before starting on this issue because somebody else is likely already working on it
 
