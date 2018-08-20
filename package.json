@@ -32,7 +32,7 @@
     "delay": "3.0.0",
     "dotenv-safe": "6.0.0",
     "lodash": "4.17.10",
-    "mongoose": "5.2.4",
+    "mongoose": "5.2.9",
     "promise-poller": "1.6.0",
     "rollbar": "2.4.4",
     "signale": "1.2.1",
