@@ -1,13 +1,13 @@
-const { ZeroEx } = require('0x.js');
+const { ContractWrappers } = require('0x.js');
 
 const { getProvider } = require('./web3');
 
-let client;
+let contractWrappers;
 
 const configure = ({ networkId }) => {
-  client = new ZeroEx(getProvider(), { networkId });
+  contractWrappers = new ContractWrappers(getProvider(), { networkId });
 };
 
-const getClient = () => client;
+const getClient = () => contractWrappers;
 
 module.exports = { configure, getClient };
