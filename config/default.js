@@ -13,9 +13,6 @@ module.exports = {
   minConfirmations: 12,
   pollingInterval: 30000,
   protocolVersion: 2,
-  rollbar: {
-    token: _.get(process.env, 'ROLLBAR_TOKEN', null),
-  },
   web3: {
     endpoint: `https://mainnet.infura.io/${process.env.INFURA_API_KEY}`,
     networkId: 1,

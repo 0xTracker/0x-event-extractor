@@ -16,7 +16,6 @@ const zeroEx = require('./util/ethereum/0x.js');
 
 logger.configure({
   bugsnagToken: config.get('bugsnag.token'),
-  rollbarToken: config.get('rollbar.token'),
 });
 web3.configure({ endpoint: config.get('web3.endpoint') });
 zeroEx.configure({ networkId: config.get('web3.networkId') });

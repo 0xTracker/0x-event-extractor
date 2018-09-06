@@ -34,7 +34,6 @@
     "lodash": "4.17.10",
     "mongoose": "5.2.9",
     "promise-poller": "1.6.0",
-    "rollbar": "2.4.4",
     "signale": "1.2.1",
     "web3": "0.20.7"
   },
