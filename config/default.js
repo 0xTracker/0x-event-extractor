@@ -8,7 +8,7 @@ module.exports = {
     connectionString: process.env.CONNECTION_STRING,
   },
   eventType: 'Fill',
-  genesisBlock: 8136166,
+  genesisBlock: 6271590,
   maxChunkSize: 10000,
   minConfirmations: 12,
   pollingInterval: 30000,
@@ -17,7 +17,7 @@ module.exports = {
     token: _.get(process.env, 'ROLLBAR_TOKEN', null),
   },
   web3: {
-    endpoint: `https://kovan.infura.io/${process.env.INFURA_API_KEY}`,
-    networkId: 42,
+    endpoint: `https://mainnet.infura.io/${process.env.INFURA_API_KEY}`,
+    networkId: 1,
   },
 };
