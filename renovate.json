@@ -1,4 +1,5 @@
 {
+  "baseBranches": ["master", "master-v2"],
   "extends": ["config:base"],
   "prHourlyLimit": 0,
   "rebaseStalePrs": true
