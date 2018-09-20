@@ -31,7 +31,7 @@
     "delay": "3.0.0",
     "dotenv-safe": "6.0.0",
     "lodash": "4.17.10",
-    "mongoose": "5.2.9",
+    "mongoose": "5.2.16",
     "promise-poller": "1.6.0",
     "signale": "1.2.1",
     "web3": "0.20.7"
