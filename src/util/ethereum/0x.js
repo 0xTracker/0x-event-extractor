@@ -1,11 +1,11 @@
 const { ContractWrappers } = require('0x.js');
 
-const { getProvider } = require('./web3');
+const { getProviderEngine } = require('./web3');
 
 let contractWrappers;
 
 const configure = ({ networkId }) => {
-  contractWrappers = new ContractWrappers(getProvider(), { networkId });
+  contractWrappers = new ContractWrappers(getProviderEngine(), { networkId });
 };
 
 const getClient = () => contractWrappers;
