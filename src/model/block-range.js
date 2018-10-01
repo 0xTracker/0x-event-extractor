@@ -10,7 +10,10 @@ const schema = Schema({
   toBlock: { type: Number, index: true },
 });
 
-schema.index({ fromBlock: 1, toBlock: 1 }, { unique: true });
+schema.index(
+  { fromBlock: 1, toBlock: 1, protocolVersion: 1 },
+  { unique: true },
+);
 
 const Model = mongoose.model('BlockRange', schema);
 
