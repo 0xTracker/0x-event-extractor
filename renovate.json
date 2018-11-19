@@ -2,5 +2,21 @@
   "baseBranches": ["master", "master-v2"],
   "extends": ["config:base"],
   "prHourlyLimit": 0,
-  "rebaseStalePrs": true
+  "rebaseStalePrs": true,
+  "packageRules": [
+    {
+      "packageNames": ["husky", "lint-staged", "prettier"],
+      "packagePatterns": ["^eslint"],
+      "groupName": "linting packages",
+      "automerge": true,
+      "major": {
+        "automerge": false
+      }
+    },
+    {
+      "packageNames": ["jest"],
+      "groupName": "testing packages",
+      "automerge": true
+    }
+  ]
 }
