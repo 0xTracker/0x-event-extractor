@@ -26,7 +26,7 @@
     "bugsnag": "2.4.3",
     "config": "3.0.0",
     "delay": "4.1.0",
-    "dotenv-safe": "6.0.0",
+    "dotenv-safe": "6.1.0",
     "lodash": "4.17.11",
     "mongoose": "5.3.14",
     "promise-poller": "1.7.0",
