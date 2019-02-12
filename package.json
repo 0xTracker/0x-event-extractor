@@ -14,7 +14,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "0x.js": "1.0.7",
-    "@0xproject/subproviders": "2.0.6",
+    "@0xproject/subproviders": "2.0.7",
     "@0xproject/web3-wrapper": "3.0.2",
     "bugsnag": "2.4.3",
     "config": "3.0.1",
