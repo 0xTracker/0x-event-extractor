@@ -9,16 +9,9 @@
     "test": "jest",
     "test:watch": "jest --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://cbovis@github.com/cbovis/0x-event-extractor.git"
-  },
+  "repository": "https://github.com/0xTracker/0x-event-extractor",
   "author": "Craig Bovis",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/cbovis/0x-event-extractor/issues"
-  },
-  "homepage": "https://github.com/cbovis/0x-event-extractor#readme",
   "dependencies": {
     "0x.js": "1.0.7",
     "@0xproject/subproviders": "2.0.6",

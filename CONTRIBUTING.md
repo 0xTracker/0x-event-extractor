@@ -33,7 +33,7 @@ You may find an issue is assigned. Please double-check before starting on this i
 
 ### Say hi
 
-Come over and say hi anytime you feel like on [Gitter](https://gitter.im/0x-tracker/general).
+Come over and say hi anytime you feel like on [Spectrum](https://spectrum.chat/0x-tracker).
 
 ### Submitting an issue
 
