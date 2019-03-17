@@ -1,8 +1,5 @@
-const {
-  RPCSubprovider,
-  Web3ProviderEngine,
-} = require('@0xproject/subproviders');
-const { Web3Wrapper } = require('@0xproject/web3-wrapper');
+const { RPCSubprovider, Web3ProviderEngine } = require('@0x/subproviders');
+const { Web3Wrapper } = require('@0x/web3-wrapper');
 
 let wrapper;
 let providerEngine;
