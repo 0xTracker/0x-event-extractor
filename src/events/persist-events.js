@@ -20,7 +20,7 @@ const persistEvents = async (protocolVersion, events) => {
     })),
   )(events);
 
-  await Event.collection.insert(eventDocuments);
+  await Event.collection.insertMany(eventDocuments);
 
   return eventDocuments.length;
 };

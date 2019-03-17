@@ -1,4 +1,4 @@
-const { ContractWrappers } = require('0x.js');
+const { ContractWrappers } = require('@0x/contract-wrappers');
 
 const { getProviderEngine } = require('./web3');
 
