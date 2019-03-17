@@ -1,4 +1,4 @@
 {
   "baseBranches": ["master", "master-v2"],
-  "extends": ["github>0xTracker/0x-tracker-renovate-config"]
+  "extends": ["github>0xTracker/renovate-config-0x-tracker"]
 }
