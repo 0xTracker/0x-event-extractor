@@ -1,11 +1,11 @@
 const { ZeroEx } = require('0x.js');
 
-const { getProvider } = require('./web3');
+const { getProviderEngine } = require('./web3');
 
 let client;
 
 const configure = ({ networkId }) => {
-  client = new ZeroEx(getProvider(), { networkId });
+  client = new ZeroEx(getProviderEngine(), { networkId });
 };
 
 const getClient = () => client;
