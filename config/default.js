@@ -14,7 +14,7 @@ module.exports = {
   pollingInterval: 30000,
   protocolVersion: 2,
   web3: {
-    endpoint: `https://mainnet.infura.io/${process.env.INFURA_API_KEY}`,
+    endpoint: 'https://cloudflare-eth.com',
     networkId: 1,
   },
 };
