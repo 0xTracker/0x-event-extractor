@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const schema = Schema({
-  blockNumber: { type: Number, index: true },
+  blockNumber: Number,
   data: { type: Schema.Types.Mixed },
   fillCreated: { type: Boolean, index: true, default: false },
-  logIndex: { type: Number, index: true },
-  protocolVersion: { default: 1, index: true, type: Number },
-  transactionHash: { type: String, index: true },
+  logIndex: Number,
+  protocolVersion: { default: 1, type: Number },
+  transactionHash: String,
   type: String,
 });
 

@@ -6,9 +6,12 @@ const schema = Schema({
   dateProcessed: Date,
   events: Number,
   fromBlock: Number,
-  protocolVersion: { default: 1, index: true, type: Number },
-  toBlock: { type: Number, index: true },
+  protocolVersion: { default: 1, type: Number },
+  toBlock: Number,
 });
+
+// Used for determining last processed block
+schema.index({ protocolVersion: 1, toBlock: -1 });
 
 schema.index(
   { fromBlock: 1, toBlock: 1, protocolVersion: 1 },
