@@ -16,7 +16,7 @@
     "0x.js": "1.0.7",
     "@0x/contract-wrappers": "9.1.7",
     "@0x/subproviders": "4.0.2",
-    "@0x/web3-wrapper": "6.0.2",
+    "@0x/web3-wrapper": "6.0.7",
     "bugsnag": "2.4.3",
     "config": "3.0.1",
     "delay": "4.1.0",
