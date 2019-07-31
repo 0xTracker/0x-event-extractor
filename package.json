@@ -13,7 +13,7 @@
   "author": "Craig Bovis",
   "license": "Apache-2.0",
   "dependencies": {
-    "@0x/contract-wrappers": "9.1.7",
+    "@0x/contract-wrappers": "10.1.0",
     "@0x/subproviders": "4.1.1",
     "@0x/web3-wrapper": "6.0.7",
     "bugsnag": "2.4.3",
