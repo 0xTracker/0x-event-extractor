@@ -19,7 +19,7 @@
     "bluebird": "3.5.3",
     "bugsnag": "2.4.3",
     "config": "3.0.1",
-    "delay": "4.1.0",
+    "delay": "4.3.0",
     "dotenv-safe": "6.1.0",
     "lodash": "4.17.11",
     "mongoose": "5.4.5",
