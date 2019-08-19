@@ -14,7 +14,7 @@ module.exports = {
   pollingInterval: 30000,
   protocolVersion: 2,
   web3: {
-    endpoint: 'https://cloudflare-eth.com',
+    endpoint: process.env.WEB3_ENDPOINT,
     networkId: 1,
   },
 };
