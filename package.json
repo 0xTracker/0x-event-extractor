@@ -15,7 +15,7 @@
   "dependencies": {
     "0x.js": "0.38.6",
     "@0x/subproviders": "4.0.2",
-    "@0x/web3-wrapper": "6.0.2",
+    "@0x/web3-wrapper": "6.0.13",
     "bluebird": "3.5.3",
     "bugsnag": "2.4.3",
     "config": "3.0.1",
