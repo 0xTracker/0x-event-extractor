@@ -24,7 +24,7 @@
     "dotenv-safe": "6.1.0",
     "lodash": "4.17.15",
     "mongoose": "5.4.7",
-    "promise-poller": "1.7.0",
+    "promise-poller": "1.9.1",
     "signale": "1.3.0"
   },
   "devDependencies": {
