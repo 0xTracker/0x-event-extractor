@@ -1,4 +1,4 @@
 {
   "ignore": ["*.test.js", "**/*.test.js"],
-  "watch": ["src/", ".env", "config"]
+  "watch": ["packages/**/src/", ".env", "config"]
 }

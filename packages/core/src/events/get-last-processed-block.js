@@ -12,7 +12,7 @@ const getLastProcessedBlock = async protocolVersion => {
   );
 
   if (lastRange === null) {
-    return config.get('genesisBlock');
+    return config.get(`genesisBlock.${protocolVersion}`);
   }
 
   return lastRange.toBlock;
