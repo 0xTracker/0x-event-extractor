@@ -1,6 +1,6 @@
 {
   "name": "@0x-event-extractor/shared",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Craig Bovis <craig@bovis.me.uk>",
   "homepage": "https://github.com/0xTracker/0x-event-extractor#readme",
   "license": "Apache-2.0",
