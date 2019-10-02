@@ -1,4 +1,5 @@
 const { ZeroEx } = require('0x.js');
+const { web3 } = require('@0x-event-extractor/shared');
 
 let client;
 
@@ -7,7 +8,7 @@ const getClient = () => {
 };
 
 const configure = options => {
-  client = new ZeroEx(getProviderEngine(), {
+  client = new ZeroEx(web3.getProviderEngine(), {
     networkId: options.networkId,
   }).getClient();
 };
