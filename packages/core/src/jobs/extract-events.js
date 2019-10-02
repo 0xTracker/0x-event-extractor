@@ -10,7 +10,11 @@ const Event = require('../model/event');
 const getCurrentBlock = require('../ethereum/get-current-block');
 const getLastProcessedBlock = require('../events/get-last-processed-block');
 
-const extractEventsForProtocol = async (protocolVersion, extractEvents) => {
+const extractEventsForProtocol = async (
+  protocolVersion,
+  fetchLogEntries,
+  getEventData,
+) => {
   const logger = signale.scope(`extract events v${protocolVersion}`);
   const currentBlock = await getCurrentBlock();
   const lastBlock = await getLastProcessedBlock(protocolVersion);
@@ -25,9 +29,18 @@ const extractEventsForProtocol = async (protocolVersion, extractEvents) => {
     return;
   }
 
-  logger.time(`extract events from block ${fromBlock} to block ${toBlock}`);
-  const events = await extractEvents(fromBlock, toBlock);
-  logger.timeEnd(`extract events from block ${fromBlock} to block ${toBlock}`);
+  logger.time(`fetch events from block ${fromBlock} to block ${toBlock}`);
+  const logEntries = await fetchLogEntries(fromBlock, toBlock);
+  logger.timeEnd(`fetch events from block ${fromBlock} to block ${toBlock}`);
+
+  const events = logEntries.map(logEntry => ({
+    blockNumber: parseInt(logEntry.blockNumber, 10),
+    data: getEventData(logEntry),
+    logIndex: logEntry.logIndex,
+    protocolVersion: 1,
+    transactionHash: logEntry.transactionHash,
+    type: logEntry.event,
+  }));
 
   if (events.length === 0) {
     logger.info(
@@ -59,8 +72,16 @@ const extractEventsForProtocol = async (protocolVersion, extractEvents) => {
 };
 
 const extractEvents = async () => {
-  await extractEventsForProtocol(1, extractorV1.extractEvents);
-  await extractEventsForProtocol(2, extractorV2.extractEvents);
+  await extractEventsForProtocol(
+    1,
+    extractorV1.fetchLogEntries,
+    extractorV1.getEventData,
+  );
+  await extractEventsForProtocol(
+    2,
+    extractorV2.fetchLogEntries,
+    extractorV2.getEventData,
+  );
 };
 
 module.exports = extractEvents;

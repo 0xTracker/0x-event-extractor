@@ -1,22 +1,17 @@
 {
   "name": "@0x-event-extractor/extractor-v1",
   "version": "0.0.0",
-  "description": "",
   "author": "Craig Bovis <craig@bovis.me.uk>",
-  "homepage": "https://github.com/0xTracker/0x-event-extractor#readme",
   "license": "Apache-2.0",
   "main": "src/index.js",
-  "publishConfig": {
-    "access": "private"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/0xTracker/0x-event-extractor.git"
   },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
   "bugs": {
     "url": "https://github.com/0xTracker/0x-event-extractor/issues"
+  },
+  "dependencies": {
+    "@0x-event-extractor/shared": "^0.0.0"
   }
 }

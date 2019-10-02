@@ -2,11 +2,7 @@
   "name": "@0x-event-extractor/core",
   "version": "0.0.0",
   "author": "Craig Bovis <craig@bovis.me.uk>",
-  "homepage": "https://github.com/0xTracker/0x-event-extractor#readme",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "private"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/0xTracker/0x-event-extractor.git"
@@ -20,8 +16,7 @@
   "dependencies": {
     "@0x-event-extractor/extractor-v1": "^0.0.0",
     "@0x-event-extractor/extractor-v2": "^0.0.0",
-    "@0x/subproviders": "^5.0.4",
-    "@0x/web3-wrapper": "^6.0.13",
+    "@0x-event-extractor/shared": "^0.0.0",
     "bugsnag": "^2.4.3",
     "config": "^3.2.2",
     "delay": "^4.3.0",
