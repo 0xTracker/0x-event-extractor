@@ -4,6 +4,7 @@
   "description": "NodeJS worker application built for 0x Tracker which extracts 0x fill events from the Ethereum blockchain and persists them to MongoDB.",
   "scripts": {
     "lint": "eslint .",
+    "postinstall": "lerna bootstrap",
     "start": "node packages/core/src",
     "test": "jest",
     "test:watch": "jest --watch"
