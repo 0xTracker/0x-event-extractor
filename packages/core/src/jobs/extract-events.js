@@ -45,7 +45,7 @@ const extractEventsForProtocol = async (protocolVersion, extractorConfig) => {
       blockNumber: logEntry.blockNumber,
       data: getEventData(logEntry),
       logIndex: logEntry.logIndex,
-      protocolVersion: 1,
+      protocolVersion,
       transactionHash: logEntry.transactionHash,
       type: logEntry.event,
     }));
