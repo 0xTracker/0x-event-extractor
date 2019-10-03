@@ -1,5 +1,3 @@
-const config = require('config');
-
 const BlockRange = require('../model/block-range');
 
 const getLastProcessedBlock = async protocolVersion => {
@@ -12,7 +10,7 @@ const getLastProcessedBlock = async protocolVersion => {
   );
 
   if (lastRange === null) {
-    return config.get(`v${protocolVersion}.genesisBlock`);
+    return null;
   }
 
   return lastRange.toBlock;

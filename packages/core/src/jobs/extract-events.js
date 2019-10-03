@@ -1,6 +1,3 @@
-const { clamp } = require('lodash');
-
-const config = require('config');
 const extractorV1 = require('@0x-event-extractor/extractor-v1');
 const extractorV2 = require('@0x-event-extractor/extractor-v2');
 const signale = require('signale');
@@ -8,56 +5,58 @@ const signale = require('signale');
 const BlockRange = require('../model/block-range');
 const Event = require('../model/event');
 const getCurrentBlock = require('../ethereum/get-current-block');
-const getLastProcessedBlock = require('../events/get-last-processed-block');
+const getNextBlockRange = require('../events/get-next-block-range');
 
-const extractEventsForProtocol = async (
-  protocolVersion,
-  fetchLogEntries,
-  getEventData,
-) => {
+const extractEventsForProtocol = async (protocolVersion, extractorConfig) => {
+  // Scope all logging for the job to the specified protocol version
   const logger = signale.scope(`extract events v${protocolVersion}`);
-  const currentBlock = await getCurrentBlock();
-  const lastBlock = await getLastProcessedBlock(protocolVersion);
-  const maxBlock = currentBlock - config.get('minConfirmations');
-  const fromBlock = lastBlock + 1;
-  const toBlock = clamp(fromBlock + config.get('maxChunkSize'), 1, maxBlock);
+
+  // Determine which blocks we should fetch log entries from
+  const { currentBlock, fetchLogEntries, getEventData } = extractorConfig;
+  const nextBlockRange = await getNextBlockRange({
+    currentBlock,
+    protocolVersion,
+  });
 
   logger.info(`current block is ${currentBlock}`);
 
-  if (toBlock < fromBlock) {
+  if (nextBlockRange === null) {
     logger.info('no more blocks to process');
     return;
   }
 
-  logger.time(`fetch events from block ${fromBlock} to block ${toBlock}`);
+  const { fromBlock, toBlock } = nextBlockRange;
+
+  logger.time(`fetch entries from blocks ${fromBlock} to ${toBlock}`);
   const logEntries = await fetchLogEntries(fromBlock, toBlock);
-  logger.timeEnd(`fetch events from block ${fromBlock} to block ${toBlock}`);
+  logger.timeEnd(`fetch events from blocks ${fromBlock} to ${toBlock}`);
 
-  const events = logEntries.map(logEntry => ({
-    blockNumber: parseInt(logEntry.blockNumber, 10),
-    data: getEventData(logEntry),
-    logIndex: logEntry.logIndex,
-    protocolVersion: 1,
-    transactionHash: logEntry.transactionHash,
-    type: logEntry.event,
-  }));
-
-  if (events.length === 0) {
-    logger.info(
-      `no events were found from block ${fromBlock} to block ${toBlock}`,
-    );
+  if (logEntries.length === 0) {
+    logger.info(`no entries were found in blocks ${fromBlock} to ${toBlock}`);
   } else {
+    // Map the log entries to a common model before persisting to MongoDB
+    const events = logEntries.map(logEntry => ({
+      blockNumber: parseInt(logEntry.blockNumber, 10),
+      data: getEventData(logEntry),
+      logIndex: logEntry.logIndex,
+      protocolVersion: 1,
+      transactionHash: logEntry.transactionHash,
+      type: logEntry.event,
+    }));
+
     logger.time(`persist ${events.length} events`);
     await Event.insertMany(events);
     logger.timeEnd(`persist ${events.length} events`);
   }
 
+  // Log details of the queried block range so that we know where
+  // to start from in the next iteration.
   await BlockRange.findOneAndUpdate(
     { fromBlock, protocolVersion, toBlock },
     {
       $set: {
         date: new Date(),
-        events: events.length,
+        events: logEntries.length,
         fromBlock,
         protocolVersion,
         toBlock,
@@ -72,16 +71,12 @@ const extractEventsForProtocol = async (
 };
 
 const extractEvents = async () => {
-  await extractEventsForProtocol(
-    1,
-    extractorV1.fetchLogEntries,
-    extractorV1.getEventData,
-  );
-  await extractEventsForProtocol(
-    2,
-    extractorV2.fetchLogEntries,
-    extractorV2.getEventData,
-  );
+  const currentBlock = await getCurrentBlock();
+
+  // Fetching of events is delegated to version specific extractors which
+  // interact with the correct SDK and contract.
+  await extractEventsForProtocol(1, { currentBlock, ...extractorV1 });
+  await extractEventsForProtocol(2, { currentBlock, ...extractorV2 });
 };
 
 module.exports = extractEvents;
