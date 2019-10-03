@@ -10,7 +10,7 @@ const getClient = () => {
 const configure = options => {
   client = new ZeroEx(web3.getProviderEngine(), {
     networkId: options.networkId,
-  }).getClient();
+  });
 };
 
 module.exports = {

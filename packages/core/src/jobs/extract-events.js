@@ -34,9 +34,15 @@ const extractEventsForProtocol = async (protocolVersion, extractorConfig) => {
   if (logEntries.length === 0) {
     logger.info(`no entries were found in blocks ${fromBlock} to ${toBlock}`);
   } else {
+    logger.info(
+      `${
+        logEntries.length
+      } entries were found in blocks ${fromBlock} to ${toBlock}`,
+    );
+
     // Map the log entries to a common model before persisting to MongoDB
     const events = logEntries.map(logEntry => ({
-      blockNumber: parseInt(logEntry.blockNumber, 10),
+      blockNumber: logEntry.blockNumber,
       data: getEventData(logEntry),
       logIndex: logEntry.logIndex,
       protocolVersion: 1,
