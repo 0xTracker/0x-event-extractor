@@ -1,18 +1,16 @@
 {
-  "name": "0x-event-extractor",
-  "version": "1.0.0",
-  "description": "NodeJS worker application built for 0x Tracker which extracts 0x fill events from the Ethereum blockchain and persists them to MongoDB.",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint .",
-    "postinstall": "lerna bootstrap",
-    "start": "node packages/core/src",
+    "start": "node src",
     "test": "jest",
     "test:watch": "jest --watch"
   },
-  "repository": "https://github.com/0xTracker/0x-event-extractor",
-  "author": "Craig Bovis",
-  "license": "Apache-2.0",
-  "dependencies": {},
+  "dependencies": {
+    "@0x-event-extractor/core": "^1.0.0",
+    "config": "3.2.3",
+    "dotenv-safe": "8.1.0"
+  },
   "devDependencies": {
     "eslint": "6.0.0",
     "eslint-config-airbnb-base": "14.0.0",
@@ -28,5 +26,6 @@
   "engines": {
     "node": "8.16.0",
     "npm": "6.x.x"
-  }
+  },
+  "private": true
 }

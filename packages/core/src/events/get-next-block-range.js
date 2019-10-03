@@ -1,5 +1,5 @@
 const { clamp } = require('lodash');
-const config = require('config');
+const { config } = require('@0x-event-extractor/shared');
 
 const getLastProcessedBlock = require('./get-last-processed-block');
 
