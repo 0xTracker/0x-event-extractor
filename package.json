@@ -19,7 +19,7 @@
     "@0x/subproviders": "5.0.1",
     "@0x/web3-wrapper": "6.0.10",
     "bugsnag": "2.4.3",
-    "config": "3.0.1",
+    "config": "3.2.3",
     "delay": "4.1.0",
     "dotenv-safe": "6.1.0",
     "lodash": "4.17.15",
