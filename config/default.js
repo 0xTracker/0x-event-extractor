@@ -5,9 +5,9 @@ module.exports = {
   database: {
     connectionString: process.env.CONNECTION_STRING,
   },
-  maxChunkSize: 10000,
+  maxChunkSize: parseInt(process.env.MAX_CHUNK_SIZE, 10),
   minConfirmations: 12,
-  pollingInterval: 30000,
+  pollingInterval: parseInt(process.env.POLLING_INTERVAL, 10),
   v1: {
     genesisBlock: 4145578,
   },
