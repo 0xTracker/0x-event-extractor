@@ -12,7 +12,7 @@ module.exports = {
     genesisBlock: 4145578,
   },
   v2: {
-    genesisBlock: 6271590,
+    genesisBlock: 8140780,
   },
   web3: {
     endpoint: process.env.WEB3_ENDPOINT,
