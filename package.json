@@ -2,6 +2,7 @@
   "name": "@0x-event-extractor/app",
   "main": "src/index.js",
   "scripts": {
+    "heroku-postbuild": "lerna bootstrap",
     "lint": "eslint .",
     "start": "node src",
     "test": "jest",
