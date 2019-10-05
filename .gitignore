@@ -2,3 +2,4 @@ config/local.js
 coverage
 node_modules/
 .env
+lerna-debug.log
