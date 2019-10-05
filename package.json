@@ -25,7 +25,7 @@
     "prettier": "1.17.1"
   },
   "engines": {
-    "node": "8.16.0",
+    "node": "10.16.3",
     "npm": "6.x.x"
   },
   "private": true
