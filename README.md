@@ -46,6 +46,18 @@ On July 12th 2019 a [vulnerability was discovered](https://blog.0xproject.com/po
 
 - Craig Bovis ([@cbovis](https://github.com/cbovis))
 
+## Supporters
+
+Infrastructure for 0x Tracker is generously supported by these companies.
+
+<table>
+  <tr>
+    <td align="center"><a href="https://bugsnag.com"><img src="https://0xtracker.com/assets/supporters/bugsnag.png" width="120px;" alt="Bugsnag"/><br /><sub><b>Bugsnag</b></sub></a></td>
+    <td align="center"><a href="https://cryptocompare.com"><img src="https://0xtracker.com/assets/supporters/crypto-compare.png" width="120px;" alt="CryptoCompare"/><br /><sub><b>CryptoCompare</b></sub></a></td>
+    <td align="center"><a href="https://netlify.com"><img src="https://0xtracker.com/assets/supporters/netlify.png" width="120px;" alt="Netlify"/><br /><sub><b>Netlify</b></sub></a></td>
+  </tr>
+</table>
+
 ## 👩‍⚖️ License
 
 [Apache 2.0](https://github.com/0xTracker/0x-event-extractor/blob/master/LICENSE)
