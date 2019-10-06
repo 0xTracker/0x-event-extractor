@@ -7,7 +7,7 @@
 
 ## 🧐 How It Works
 
-The extractor runs on a configurable interval, scraping a chunk of events from the blockchain using the `getLogsAsync` method of [0x.js](https://www.0xproject.com/docs/0x.js). Events are persisted to MongoDB and the scraped block range is also logged to ensure the same blocks don't get scraped twice.
+The extractor runs on a configurable interval, scraping a chunk of events from the blockchain using the `getLogsAsync` method of [0x.js](https://www.0xproject.com/docs/0x.js). Events are persisted to MongoDB and the processed block range is logged to ensure the range only gets extracted once.
 
 ## 👮‍♂️ Requirements
 
@@ -30,9 +30,17 @@ Run `cp .env.example .env` to create a local environment file, then get yourself
 
 Run `yarn install` to install dependencies and then run `yarn start`/`nodemon` to start the extractor. You should start to see events being persisted.
 
+## 🌳 Project Structure
+
+The project uses a monorepo structure which accomodates different 0x.js dependencies for different versions of the 0x protocol. This structure is mostly invisible in day to day work since it is managed by Yarn. To add or remove dependencies in sub-packages however you'll need a basic understanding of [Yarn Workspaces](https://yarnpkg.com/en/docs/workspaces).
+
 ## 🛠 Configuration
 
 Configuration is handled by a combination of [dotenv](https://github.com/motdotla/dotenv) files and [node-config](https://github.com/lorenwest/node-config). If you need to tweak anything you can either edit your .env file or create a config/local.js file with overrides for the configuration found in config/default.js.
+
+## ⚠️ Caveats
+
+On July 12th 2019 a [vulnerability was discovered](https://blog.0xproject.com/post-mortem-0x-v2-0-exchange-vulnerability-763015399578) in 0x V2 which resulted in a shutdown and redployment of the contract. Because of this the 0x Event Extractor currently only collects event logs from the latest V2 contract (dubbed v2.1), meaning that V2 events before 12th July are not collected. This will be improved in the future by the use of v2 and v2.1 extractors which will handle the pre and post vulnerability contracts respectively.
 
 ## 👨‍💻 Maintainers
 
