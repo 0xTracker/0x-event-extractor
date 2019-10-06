@@ -14,9 +14,7 @@ const repeatTask = (task, interval, maxRetries) =>
     .then(() => repeatTask(task, interval))
     .catch(() => {
       logger.logError(
-        `Stopped running ${
-          task.name
-        } due to too many failures (${maxRetries}).`,
+        `Stopped running ${task.name} due to too many failures (${maxRetries}).`,
       );
     });
 
