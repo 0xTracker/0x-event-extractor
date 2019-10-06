@@ -29,5 +29,8 @@
     "node": "10.16.3",
     "npm": "6.x.x"
   },
-  "private": true
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
 }
