@@ -1,20 +1,21 @@
-const _ = require('lodash');
-
 module.exports = {
   bugsnag: {
-    token: _.get(process.env, 'BUGSNAG_TOKEN', null),
+    token: process.env.BUGSNAG_TOKEN || null,
   },
   database: {
     connectionString: process.env.CONNECTION_STRING,
   },
-  eventType: 'LogFill',
-  genesisBlock: 4145578,
-  maxChunkSize: 10000,
+  maxChunkSize: parseInt(process.env.MAX_CHUNK_SIZE, 10),
   minConfirmations: 12,
-  pollingInterval: 30000,
-  protocolVersion: 1,
+  pollingInterval: parseInt(process.env.POLLING_INTERVAL, 10),
+  v1: {
+    genesisBlock: 4145578,
+  },
+  v2: {
+    genesisBlock: 8140780,
+  },
   web3: {
-    endpoint: `https://mainnet.infura.io/${process.env.INFURA_API_KEY}`,
+    endpoint: process.env.WEB3_ENDPOINT,
     networkId: 1,
   },
 };

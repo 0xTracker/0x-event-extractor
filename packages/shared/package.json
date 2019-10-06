@@ -1,0 +1,11 @@
+{
+  "name": "@0x-event-extractor/shared",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "@0x/subproviders": "^5.0.4",
+    "@0x/utils": "^4.5.2",
+    "@0x/web3-wrapper": "^6.0.13",
+    "lodash": "^4.17.15"
+  }
+}

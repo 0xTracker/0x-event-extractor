@@ -3,8 +3,12 @@ branches:
     - master
 language: node_js
 cache:
+  yarn: true
   directories:
-    - 'node_modules'
-install: npm install
+    - node_modules
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+install: yarn install
 script:
-  - npm run lint
+  - yarn run lint

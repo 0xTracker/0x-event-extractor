@@ -1,8 +1,8 @@
-const config = require('config');
+const { config } = require('@0x-event-extractor/shared');
 
 const extractEvents = require('./extract-events');
 
-module.exports = [
+module.exports = () => [
   {
     fn: extractEvents,
     interval: config.get('pollingInterval'),

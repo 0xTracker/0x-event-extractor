@@ -1,30 +1,16 @@
 {
-  "name": "0x-event-extractor",
-  "version": "1.0.0",
-  "description": "NodeJS worker application built for 0x Tracker which extracts 0x fill events from the Ethereum blockchain and persists them to MongoDB.",
+  "name": "@0x-event-extractor/app",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
+    "start": "node src",
     "test": "jest",
     "test:watch": "jest --watch"
   },
-  "repository": "https://github.com/0xTracker/0x-event-extractor",
-  "author": "Craig Bovis",
-  "license": "Apache-2.0",
   "dependencies": {
-    "0x.js": "0.38.6",
-    "@0x/subproviders": "4.0.2",
-    "@0x/web3-wrapper": "6.0.2",
-    "bluebird": "3.5.3",
-    "bugsnag": "2.4.3",
-    "config": "3.0.1",
-    "delay": "4.1.0",
-    "dotenv-safe": "6.1.0",
-    "lodash": "4.17.11",
-    "mongoose": "5.4.5",
-    "promise-poller": "1.7.0",
-    "signale": "1.3.0"
+    "@0x-event-extractor/core": "^1.0.0",
+    "config": "3.2.3",
+    "dotenv-safe": "8.1.0"
   },
   "devDependencies": {
     "eslint": "6.0.0",
@@ -38,7 +24,11 @@
     "prettier": "1.17.1"
   },
   "engines": {
-    "node": "8.16.0",
-    "npm": "6.x.x"
-  }
+    "node": "10.16.3",
+    "yarn": "1.19.0"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
 }
