@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "dependencies": {
-    "0x.js": "0.38.6",
+    "0x.js": "7.0.2",
     "@0x-event-extractor/shared": "^1.0.0"
   }
 }
