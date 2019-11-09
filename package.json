@@ -21,7 +21,7 @@
     "husky": "3.0.8",
     "jest": "24.9.0",
     "lint-staged": "9.4.2",
-    "prettier": "1.19.0"
+    "prettier": "1.19.1"
   },
   "engines": {
     "node": "10.16.3",
