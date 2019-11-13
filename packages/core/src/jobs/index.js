@@ -5,7 +5,7 @@ const extractEvents = require('./extract-events');
 module.exports = () => [
   {
     fn: extractEvents,
-    interval: config.get('pollingInterval'),
-    maxRetries: 10,
+    minInterval: config.get('minPollingInterval'),
+    maxInterval: config.get('maxPollingInterval'),
   },
 ];
