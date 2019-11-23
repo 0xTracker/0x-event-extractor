@@ -12,3 +12,13 @@ before_install:
 install: yarn install
 script:
   - yarn run lint
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_DEPLOY_ACCESS_KEY_ID
+  secret_access_key: $AWS_DEPLOY_SECRET_ACCESS_KEY
+  region: $AWS_DEPLOY_REGION
+  app: "0x Event Extractor"
+  env: $AWS_DEPLOY_ENV
+  bucket_name: $AWS_DEPLOY_BUCKET_NAME
+  on:
+    branch: master
