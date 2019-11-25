@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "eb-disable-npm": "1.0.1",
-    "eslint": "6.7.0",
+    "eslint": "6.7.1",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-config-prettier": "6.7.0",
     "eslint-plugin-import": "2.18.2",
