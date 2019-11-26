@@ -15,6 +15,9 @@ module.exports = {
   v2: {
     genesisBlock: 8140780,
   },
+  v3: {
+    genesisBlock: 8952139,
+  },
   web3: {
     endpoint: process.env.WEB3_ENDPOINT,
     networkId: 1,
