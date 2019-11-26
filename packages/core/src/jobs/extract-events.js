@@ -1,5 +1,6 @@
 const extractorV1 = require('@0x-event-extractor/extractor-v1');
 const extractorV2 = require('@0x-event-extractor/extractor-v2');
+const extractorV3 = require('@0x-event-extractor/extractor-v3');
 const signale = require('signale');
 
 const BlockRange = require('../model/block-range');
@@ -88,9 +89,10 @@ const extractEvents = async () => {
   const currentBlock = await getCurrentBlock();
 
   // Fetching of events is delegated to version specific extractors which
-  // interact with the correct SDK and contract.
+  // interact with the correct 0x SDK version and contract.
   await extractEventsForProtocol(1, { currentBlock, ...extractorV1 });
   await extractEventsForProtocol(2, { currentBlock, ...extractorV2 });
+  await extractEventsForProtocol(3, { currentBlock, ...extractorV3 });
 };
 
 module.exports = extractEvents;
