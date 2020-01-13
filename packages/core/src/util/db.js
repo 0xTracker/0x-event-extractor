@@ -1,28 +1,47 @@
 const mongoose = require('mongoose');
 const signale = require('signale');
 
-const logger = require('./logger');
+const { logError } = require('./error-logger');
+
+const logger = signale.scope('mongodb');
 
 mongoose.Promise = global.Promise;
 
 module.exports = {
-  connect: connectionString => {
-    mongoose.connect(connectionString, {
-      useFindAndModify: false,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+  connect: async connectionString => {
+    mongoose.connection.on('connecting', () => {
+      logger.info('connecting to database');
     });
 
     mongoose.connection.on('connected', () => {
-      signale.scope('mongodb').success('database connection established');
+      logger.success('database connection established');
     });
 
     mongoose.connection.on('error', err => {
-      logger.logError(err);
+      logError(err);
+    });
+
+    mongoose.connection.on('disconnecting', () => {
+      logger.warn('disconnecting from database');
     });
 
     mongoose.connection.on('disconnected', () => {
-      signale.scope('mongodb').warn('database connection terminated');
+      logger.warn('database connection terminated');
+    });
+
+    mongoose.connection.on('reconnected', () => {
+      logger.warn('reconnected to database');
+    });
+
+    mongoose.connection.on('reconnectFailed', () => {
+      logError('Database reconnection failed');
+    });
+
+    await mongoose.connect(connectionString, {
+      autoIndex: false,
+      useFindAndModify: false,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
   },
   disconnect: () => {
