@@ -7,7 +7,7 @@
     "@0x-event-extractor/extractor-v2": "^1.0.0",
     "@0x-event-extractor/extractor-v3": "^1.0.0",
     "@0x-event-extractor/shared": "^1.0.0",
-    "@bugsnag/js": "6.5.0",
+    "@bugsnag/js": "6.5.2",
     "bugsnag": "^2.4.3",
     "delay": "^4.3.0",
     "lodash": "^4.17.15",
