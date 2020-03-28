@@ -2,6 +2,7 @@
   "name": "@0x-event-extractor/app",
   "main": "src/index.js",
   "scripts": {
+    "dev": "nodemon pino . | pino-pretty -t",
     "lint": "eslint .",
     "start": "node src",
     "test": "jest",
@@ -22,11 +23,13 @@
     "husky": "3.0.8",
     "jest": "25.1.0",
     "lint-staged": "9.4.2",
+    "nodemon": "2.0.2",
+    "pino-pretty": "3.6.1",
     "prettier": "1.19.1"
   },
   "engines": {
     "node": "10.17.0",
-    "yarn": "1.21.1"
+    "yarn": "1.22.4"
   },
   "private": true,
   "workspaces": [
