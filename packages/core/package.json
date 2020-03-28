@@ -11,7 +11,7 @@
     "bugsnag": "^2.4.3",
     "delay": "^4.3.0",
     "lodash": "^4.17.15",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.5",
     "pino": "6.0.0",
     "pino-elasticsearch": "4.4.0",
     "promise-poller": "^1.9.1"
