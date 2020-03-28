@@ -9,6 +9,13 @@ module.exports = {
   maxPollingInterval: parseInt(process.env.MAX_POLLING_INTERVAL, 10),
   minConfirmations: 12,
   minPollingInterval: parseInt(process.env.MIN_POLLING_INTERVAL, 10),
+  pino: {
+    elasticsearch: {
+      batchSize: 200,
+      index: 'logs_event_extractor',
+      url: process.env.PINO_ELASTIC_SEARCH_URL || null,
+    },
+  },
   v1: {
     genesisBlock: 4145578,
   },

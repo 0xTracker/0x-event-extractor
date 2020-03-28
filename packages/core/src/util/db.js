@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
-const signale = require('signale');
 
 const { logError } = require('./error-logger');
-
-const logger = signale.scope('mongodb');
+const { getLogger } = require('./logging');
 
 mongoose.Promise = global.Promise;
 
 module.exports = {
   connect: async connectionString => {
+    const logger = getLogger();
+
     mongoose.connection.on('connecting', () => {
       logger.info('connecting to database');
     });
 
     mongoose.connection.on('connected', () => {
-      logger.success('database connection established');
+      logger.info('database connection established');
     });
 
     mongoose.connection.on('error', err => {

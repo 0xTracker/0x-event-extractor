@@ -1,27 +1,27 @@
 const extractorV1 = require('@0x-event-extractor/extractor-v1');
 const extractorV2 = require('@0x-event-extractor/extractor-v2');
 const extractorV3 = require('@0x-event-extractor/extractor-v3');
-const signale = require('signale');
 
+const { getLogger } = require('../util/logging');
 const BlockRange = require('../model/block-range');
 const Event = require('../model/event');
 const getCurrentBlock = require('../ethereum/get-current-block');
 const getNextBlockRange = require('../events/get-next-block-range');
-const withTimer = require('../util/with-timer');
 const withTransaction = require('../util/with-transaction');
 
 const extractEventsForProtocol = async (protocolVersion, extractorConfig) => {
   // Scope all logging for the job to the specified protocol version
-  const logger = signale.scope(`extract events v${protocolVersion}`);
+  const logger = getLogger(`extract events v${protocolVersion}`);
 
   // Determine which blocks we should fetch log entries from
   const { currentBlock, fetchLogEntries, getEventData } = extractorConfig;
+
+  logger.info(`current block is ${currentBlock}`);
+
   const nextBlockRange = await getNextBlockRange({
     currentBlock,
     protocolVersion,
   });
-
-  logger.info(`current block is ${currentBlock}`);
 
   if (nextBlockRange === null) {
     logger.info('no more blocks to process');
@@ -30,16 +30,16 @@ const extractEventsForProtocol = async (protocolVersion, extractorConfig) => {
 
   const { fromBlock, toBlock } = nextBlockRange;
 
-  logger.info(`next block range is ${fromBlock} to ${toBlock}`);
+  logger.info(`fetching events from block range ${fromBlock} to ${toBlock}`);
 
-  const logEntries = await withTimer(logger, `fetch entries`, () =>
-    fetchLogEntries(fromBlock, toBlock),
-  );
+  const logEntries = await fetchLogEntries(fromBlock, toBlock);
 
   if (logEntries.length === 0) {
-    logger.info(`no entries were found`);
+    logger.info(`no events found in block range ${fromBlock} to ${toBlock}`);
   } else {
-    logger.info(`${logEntries.length} entries were found`);
+    logger.info(
+      `${logEntries.length} events found in block range ${fromBlock} to ${toBlock}`,
+    );
   }
 
   // Persistence operations are wrapped in a transaction to ensure consistency
@@ -55,34 +55,34 @@ const extractEventsForProtocol = async (protocolVersion, extractorConfig) => {
         type: logEntry.event,
       }));
 
-      await withTimer(logger, `persist ${events.length} events`, async () => {
-        await Event.insertMany(events, { session });
-      });
+      await Event.insertMany(events, { session });
     }
 
     // Log details of the queried block range so that we know where
     // to start from in the next iteration.
-    await withTimer(logger, 'log queried block range', async () => {
-      await BlockRange.findOneAndUpdate(
-        { fromBlock, protocolVersion, toBlock },
-        {
-          $set: {
-            date: new Date(),
-            events: logEntries.length,
-            fromBlock,
-            protocolVersion,
-            toBlock,
-          },
+    await BlockRange.findOneAndUpdate(
+      { fromBlock, protocolVersion, toBlock },
+      {
+        $set: {
+          date: new Date(),
+          events: logEntries.length,
+          fromBlock,
+          protocolVersion,
+          toBlock,
         },
-        {
-          upsert: true,
-          new: true,
-          runValidators: true,
-          session,
-        },
-      );
-    });
+      },
+      {
+        upsert: true,
+        new: true,
+        runValidators: true,
+        session,
+      },
+    );
   });
+
+  if (logEntries.length > 0) {
+    logger.info(`persisted ${logEntries.length} events to database`);
+  }
 };
 
 const extractEvents = async () => {

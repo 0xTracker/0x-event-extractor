@@ -1,8 +1,5 @@
 const _ = require('lodash');
 const bugsnag = require('@bugsnag/js');
-const signale = require('signale');
-
-const logger = signale.scope('application');
 
 let bugsnagClient;
 
@@ -11,7 +8,7 @@ const logError = (error, metaData) => {
     bugsnagClient.notify(error, { metaData });
   }
 
-  logger.error(error);
+  console.error(error); // eslint-disable-line no-console
 };
 
 const configure = ({ appVersion, bugsnagToken }) => {
@@ -23,8 +20,8 @@ const configure = ({ appVersion, bugsnagToken }) => {
       appVersion,
     });
   } else {
-    process.on('uncaughtException', logger.error);
-    process.on('unhandledRejection', logger.error);
+    process.on('uncaughtException', console.error); // eslint-disable-line no-console
+    process.on('unhandledRejection', console.error); // eslint-disable-line no-console
   }
 };
 
