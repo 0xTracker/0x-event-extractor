@@ -28,7 +28,7 @@
     "prettier": "1.19.1"
   },
   "engines": {
-    "node": "10.17.0",
+    "node": "10.19.0",
     "yarn": "1.22.4"
   },
   "private": true,
