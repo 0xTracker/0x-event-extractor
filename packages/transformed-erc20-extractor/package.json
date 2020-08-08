@@ -1,0 +1,9 @@
+{
+  "name": "@0x-event-extractor/transformed-erc20-extractor",
+  "description": "Extractor for exchange proxy ERC20 transform events",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "@0x-event-extractor/shared": "^1.0.0"
+  }
+}
