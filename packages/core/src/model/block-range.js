@@ -14,12 +14,6 @@ const schema = Schema({
 // Used for determining last processed block
 schema.index({ protocolVersion: 1, toBlock: -1 });
 
-// Used to enforce consistency in the data
-schema.index(
-  { fromBlock: 1, toBlock: 1, protocolVersion: 1 },
-  { unique: true },
-);
-
 const BlockRange = mongoose.model('BlockRange', schema);
 
 module.exports = BlockRange;

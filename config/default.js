@@ -16,14 +16,14 @@ module.exports = {
       url: process.env.PINO_ELASTIC_SEARCH_URL || null,
     },
   },
-  v1: {
-    genesisBlock: 4145578,
-  },
-  v2: {
-    genesisBlock: 8140780,
-  },
-  v3: {
-    genesisBlock: 8952139,
+  startBlock: {
+    fill: {
+      v2: 8140780,
+      v3: 8952139,
+    },
+    logFill: {
+      v1: 4145578,
+    },
   },
   web3: {
     endpoint: process.env.WEB3_ENDPOINT,
