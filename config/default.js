@@ -24,6 +24,9 @@ module.exports = {
     logFill: {
       v1: 4145578,
     },
+    transformedErc20: {
+      v3: 10247094,
+    },
   },
   web3: {
     endpoint: process.env.WEB3_ENDPOINT,

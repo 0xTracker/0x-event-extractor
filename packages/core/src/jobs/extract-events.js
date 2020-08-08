@@ -1,6 +1,7 @@
 const fillExtractorV1 = require('@0x-event-extractor/fill-extractor-v1');
 const fillExtractorV2 = require('@0x-event-extractor/fill-extractor-v2');
 const fillExtractorV3 = require('@0x-event-extractor/fill-extractor-v3');
+const transformedERC20Extractor = require('@0x-event-extractor/transformed-erc20-extractor');
 
 const { getLogger } = require('../util/logging');
 const BlockRange = require('../model/block-range');
@@ -109,6 +110,7 @@ const extractEvents = async () => {
   await performExtraction(currentBlock, fillExtractorV1);
   await performExtraction(currentBlock, fillExtractorV2);
   await performExtraction(currentBlock, fillExtractorV3);
+  await performExtraction(currentBlock, transformedERC20Extractor);
 
   logger.info('finished event extraction');
 };
