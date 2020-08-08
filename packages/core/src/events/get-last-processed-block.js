@@ -1,13 +1,9 @@
 const BlockRange = require('../model/block-range');
 
-const getLastProcessedBlock = async protocolVersion => {
-  const lastRange = await BlockRange.findOne(
-    protocolVersion === 1
-      ? { protocolVersion: { $in: [protocolVersion, null] } }
-      : { protocolVersion },
-    {},
-    { sort: { toBlock: -1 } },
-  );
+const getLastProcessedBlock = async (eventType, protocolVersion) => {
+  const query = { eventType, protocolVersion };
+  const options = { sort: { toBlock: -1 } };
+  const lastRange = await BlockRange.findOne(query, undefined, options);
 
   if (lastRange === null) {
     return null;

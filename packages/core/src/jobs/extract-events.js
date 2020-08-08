@@ -11,7 +11,7 @@ const withTransaction = require('../util/with-transaction');
 
 const performExtraction = async (currentBlock, extractorConfig) => {
   const {
-    eventType, // TODO: Query by this once we have data in blockranges collection
+    eventType,
     fetchLogEntries,
     getEventData,
     protocolVersion,
@@ -20,7 +20,7 @@ const performExtraction = async (currentBlock, extractorConfig) => {
   // Scope all logging for the job to the specified protocol version and event type
   const logger = getLogger(`extract v${protocolVersion} ${eventType} events`);
 
-  const rangeConfig = { currentBlock, protocolVersion }; // TODO: Also include event type
+  const rangeConfig = { currentBlock, eventType, protocolVersion };
   const nextBlockRange = await getNextBlockRange(rangeConfig);
 
   if (nextBlockRange === null) {
