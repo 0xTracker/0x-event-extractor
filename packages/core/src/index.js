@@ -1,7 +1,7 @@
 const { config } = require('@0x-event-extractor/shared');
-const extractorV1 = require('@0x-event-extractor/extractor-v1');
-const extractorV2 = require('@0x-event-extractor/extractor-v2');
-const extractorV3 = require('@0x-event-extractor/extractor-v3');
+const extractorV1 = require('@0x-event-extractor/fill-extractor-v1');
+const extractorV2 = require('@0x-event-extractor/fill-extractor-v2');
+const extractorV3 = require('@0x-event-extractor/fill-extractor-v3');
 
 const db = require('./util/db');
 const errorLogger = require('./util/error-logger');

@@ -1,6 +1,6 @@
-const fillExtractorV1 = require('@0x-event-extractor/extractor-v1');
-const fillExtractorV2 = require('@0x-event-extractor/extractor-v2');
-const fillExtractorV3 = require('@0x-event-extractor/extractor-v3');
+const fillExtractorV1 = require('@0x-event-extractor/fill-extractor-v1');
+const fillExtractorV2 = require('@0x-event-extractor/fill-extractor-v2');
+const fillExtractorV3 = require('@0x-event-extractor/fill-extractor-v3');
 
 const { getLogger } = require('../util/logging');
 const BlockRange = require('../model/block-range');
