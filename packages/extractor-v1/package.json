@@ -1,5 +1,6 @@
 {
   "name": "@0x-event-extractor/extractor-v1",
+  "description": "Extractor for v1 LogFill events",
   "version": "1.0.0",
   "main": "src/index.js",
   "dependencies": {
