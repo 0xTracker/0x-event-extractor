@@ -6,4 +6,10 @@ const configure = options => {
   zeroEx.configure(options);
 };
 
-module.exports = { configure, fetchLogEntries, getEventData };
+module.exports = {
+  configure,
+  eventType: 'LogFill',
+  fetchLogEntries,
+  getEventData,
+  protocolVersion: 1,
+};
