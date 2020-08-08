@@ -1,6 +1,6 @@
 {
-  "name": "@0x-event-extractor/extractor-v2",
-  "description": "Extractor for v2 Fill events",
+  "name": "@0x-event-extractor/fill-extractor-v2",
+  "description": "Extractor for v2 fill events",
   "version": "1.0.0",
   "main": "src/index.js",
   "dependencies": {
