@@ -12,8 +12,9 @@ const schema = Schema({
   type: { required: true, type: String },
 });
 
+// Used to enforce consistency in the data
 schema.index({ logIndex: 1, transactionHash: 1 }, { unique: true });
 
-const Model = mongoose.model('Event', schema);
+const Event = mongoose.model('Event', schema);
 
-module.exports = Model;
+module.exports = Event;
