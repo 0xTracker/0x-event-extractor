@@ -11,11 +11,12 @@ const convertAmount = (amount, decimals) => {
   return amount0In;
 };
 
-const fetchEvents = async (fromBlock, toBlock) => {
+const fetchEvents = async (fromBlock, toBlock, skip = 0) => {
+  const pageSize = 100;
   const query = gql`{
     swaps (
-        first: 50,
-        skip: 0,
+        first: ${pageSize},
+        skip: ${skip},
         where: {
             sender: "${EXCHANGE_PROXY_ADDRESS}",
             timestamp_gte: ${fromBlock},
@@ -98,6 +99,12 @@ const fetchEvents = async (fromBlock, toBlock) => {
       transactionHash,
     };
   });
+
+  if (events.length === pageSize) {
+    const nextEvents = await fetchEvents(fromBlock, toBlock, skip + pageSize);
+
+    return events.concat(nextEvents);
+  }
 
   return events;
 };
