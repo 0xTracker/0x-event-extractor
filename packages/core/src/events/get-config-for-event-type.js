@@ -3,10 +3,13 @@ const { config } = require('@0x-event-extractor/shared');
 
 const getConfigForEventType = (eventType, protocolVersion) => {
   const camelEventType = _.camelCase(eventType);
+  const defaultChunkSize = config.get(`maxChunkSize.default`);
+
   const startBlockKey = `startBlock.${camelEventType}.v${protocolVersion}`;
   const startBlock = config.get(startBlockKey);
-  const maxChunkSize = config.get('maxChunkSize');
-  const minConfirmations = config.get('minConfirmations');
+
+  const chunkSizeKey = `maxChunkSize.${camelEventType}.v${protocolVersion}`;
+  const maxChunkSize = config.get(chunkSizeKey) || defaultChunkSize;
 
   if (startBlock === undefined) {
     throw new Error(
@@ -14,7 +17,7 @@ const getConfigForEventType = (eventType, protocolVersion) => {
     );
   }
 
-  return { startBlock, maxChunkSize, minConfirmations };
+  return { startBlock, maxChunkSize };
 };
 
 module.exports = getConfigForEventType;

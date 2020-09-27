@@ -1,16 +1,19 @@
+const { config } = require('@0x-event-extractor/shared');
 const fillExtractorV1 = require('@0x-event-extractor/fill-extractor-v1');
 const fillExtractorV2 = require('@0x-event-extractor/fill-extractor-v2');
 const fillExtractorV3 = require('@0x-event-extractor/fill-extractor-v3');
 const transformedERC20Extractor = require('@0x-event-extractor/transformed-erc20-extractor');
+const uniswapV2Extractor = require('@0x-event-extractor/uniswap-v2-swap-extractor');
 
 const { getLogger } = require('../util/logging');
 const BlockRange = require('../model/block-range');
 const Event = require('../model/event');
+const getBlock = require('../ethereum/get-block');
 const getCurrentBlock = require('../ethereum/get-current-block');
 const getNextBlockRange = require('../events/get-next-block-range');
 const withTransaction = require('../util/with-transaction');
 
-const performExtraction = async (currentBlock, extractorConfig) => {
+const performExtraction = async (maxBlockNumber, extractorConfig) => {
   const {
     eventType,
     fetchLogEntries,
@@ -21,7 +24,7 @@ const performExtraction = async (currentBlock, extractorConfig) => {
   // Scope all logging for the job to the specified protocol version and event type
   const logger = getLogger(`extract v${protocolVersion} ${eventType} events`);
 
-  const rangeConfig = { currentBlock, eventType, protocolVersion };
+  const rangeConfig = { eventType, maxBlockNumber, protocolVersion };
   const nextBlockRange = await getNextBlockRange(rangeConfig);
 
   if (nextBlockRange === null) {
@@ -93,24 +96,37 @@ const performExtraction = async (currentBlock, extractorConfig) => {
   }
 };
 
+const determineMaxQueryableBlock = currentBlock => {
+  const minConfirmations = config.get('minConfirmations');
+  const maxBlock = currentBlock - minConfirmations;
+
+  return maxBlock;
+};
+
 const extractEvents = async () => {
   const logger = getLogger('event extractor');
 
   logger.info('beginning event extraction');
   logger.info('fetching current block');
 
-  const currentBlock = await getCurrentBlock();
+  const currentBlockNumber = await getCurrentBlock();
+  const maxBlockNumber = determineMaxQueryableBlock(currentBlockNumber);
 
-  logger.info(`current block is ${currentBlock}`);
+  logger.info(`current block is ${currentBlockNumber}`);
+  logger.info(`safe block is ${maxBlockNumber}`);
 
   /**
    * Extractors are run sequentially to help avoid issues with rate
    * limiting in the Ethereum RPC provider.
    */
-  await performExtraction(currentBlock, fillExtractorV1);
-  await performExtraction(currentBlock, fillExtractorV2);
-  await performExtraction(currentBlock, fillExtractorV3);
-  await performExtraction(currentBlock, transformedERC20Extractor);
+  await performExtraction(maxBlockNumber, fillExtractorV1);
+  await performExtraction(maxBlockNumber, fillExtractorV2);
+  await performExtraction(maxBlockNumber, fillExtractorV3);
+  await performExtraction(maxBlockNumber, transformedERC20Extractor);
+
+  const maxBlock = await getBlock(maxBlockNumber);
+
+  await performExtraction(maxBlock.timestamp, uniswapV2Extractor);
 
   logger.info('finished event extraction');
 };

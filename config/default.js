@@ -5,7 +5,12 @@ module.exports = {
   database: {
     connectionString: process.env.CONNECTION_STRING,
   },
-  maxChunkSize: parseInt(process.env.MAX_CHUNK_SIZE, 10),
+  maxChunkSize: {
+    default: parseInt(process.env.MAX_CHUNK_SIZE, 10),
+    uniswapV2Swap: {
+      v3: 43200, // 12 hours
+    },
+  },
   maxPollingInterval: parseInt(process.env.MAX_POLLING_INTERVAL, 10),
   minConfirmations: 12,
   minPollingInterval: parseInt(process.env.MIN_POLLING_INTERVAL, 10),
@@ -26,6 +31,9 @@ module.exports = {
     },
     transformedErc20: {
       v3: 10247094,
+    },
+    uniswapV2Swap: {
+      v3: 1600834642, // Represents a point in time, not a block number
     },
   },
   web3: {
