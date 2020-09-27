@@ -8,7 +8,7 @@ module.exports = {
   maxChunkSize: {
     default: parseInt(process.env.MAX_CHUNK_SIZE, 10),
     uniswapV2Swap: {
-      v3: 43200, // 12 hours
+      v3: 1800, // 30 minutes
     },
   },
   maxPollingInterval: parseInt(process.env.MAX_POLLING_INTERVAL, 10),
