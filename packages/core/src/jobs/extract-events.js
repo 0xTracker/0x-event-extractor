@@ -113,7 +113,7 @@ const extractEvents = async () => {
   const maxBlockNumber = determineMaxQueryableBlock(currentBlockNumber);
 
   logger.info(`current block is ${currentBlockNumber}`);
-  logger.info(`safe block is ${maxBlockNumber}`);
+  logger.info(`max block is ${maxBlockNumber}`);
 
   /**
    * Extractors are run sequentially to help avoid issues with rate

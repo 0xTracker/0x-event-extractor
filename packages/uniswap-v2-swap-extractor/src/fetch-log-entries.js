@@ -4,11 +4,9 @@ const { BigNumber } = require('@0x/utils');
 const EXCHANGE_PROXY_ADDRESS = '0xdef1c0ded9bec7f1a1670819833240f027b25eff';
 
 const convertAmount = (amount, decimals) => {
-  const amount0In = new BigNumber(amount).times(
+  return new BigNumber(amount).times(
     new BigNumber(10).pow(new BigNumber(decimals)),
   );
-
-  return amount0In;
 };
 
 const fetchEvents = async (fromBlock, toBlock, skip = 0) => {
@@ -39,7 +37,6 @@ const fetchEvents = async (fromBlock, toBlock, skip = 0) => {
           decimals
         }
       }
-      sender
       amount0In
       amount1In
       amount0Out
