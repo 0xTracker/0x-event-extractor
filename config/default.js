@@ -7,6 +7,9 @@ module.exports = {
   },
   maxChunkSize: {
     default: parseInt(process.env.MAX_CHUNK_SIZE, 10),
+    sushiswapSwap: {
+      v3: 1800, // 30 minutes
+    },
     uniswapV2Swap: {
       v3: 1800, // 30 minutes
     },
@@ -31,6 +34,9 @@ module.exports = {
     },
     transformedErc20: {
       v3: 10247094,
+    },
+    sushiswapSwap: {
+      v3: 1600834642, // Represents a point in time, not a block number
     },
     uniswapV2Swap: {
       v3: 1600834642, // Represents a point in time, not a block number

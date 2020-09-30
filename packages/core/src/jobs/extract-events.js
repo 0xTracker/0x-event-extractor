@@ -2,6 +2,7 @@ const { config } = require('@0x-event-extractor/shared');
 const fillExtractorV1 = require('@0x-event-extractor/fill-extractor-v1');
 const fillExtractorV2 = require('@0x-event-extractor/fill-extractor-v2');
 const fillExtractorV3 = require('@0x-event-extractor/fill-extractor-v3');
+const sushiswapSwapExtractor = require('@0x-event-extractor/sushiswap-swap-extractor');
 const transformedERC20Extractor = require('@0x-event-extractor/transformed-erc20-extractor');
 const uniswapV2Extractor = require('@0x-event-extractor/uniswap-v2-swap-extractor');
 
@@ -127,6 +128,7 @@ const extractEvents = async () => {
   const maxBlock = await getBlock(maxBlockNumber);
 
   await performExtraction(maxBlock.timestamp, uniswapV2Extractor);
+  await performExtraction(maxBlock.timestamp, sushiswapSwapExtractor);
 
   logger.info('finished event extraction');
 };
