@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@0x-event-extractor/core": "^1.0.0",
-    "config": "3.2.3",
+    "config": "3.3.2",
     "dotenv-safe": "8.1.0"
   },
   "devDependencies": {
