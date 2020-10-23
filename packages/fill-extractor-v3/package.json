@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "dependencies": {
-    "@0x/contract-wrappers": "12.2.0-beta.3",
+    "@0x/contract-wrappers": "13.9.0",
     "@0x-event-extractor/shared": "^1.0.0"
   }
 }
