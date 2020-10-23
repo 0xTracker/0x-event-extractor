@@ -992,16 +992,14 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@elastic/elasticsearch@^7.6.0":
-  version "7.6.1"
-  resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-7.6.1.tgz#f23fb6146deb8053c1acc19bc4a6ddf6f9961a1e"
-  integrity sha512-TEffCqUM9mK91eScc8pC/7p5+hF3+dXuz1lm40sxsB6495ilcVz7nn31BtOoocRTtmGdHjsCQRZqPpM0caatcQ==
+"@elastic/elasticsearch@^7.7.1":
+  version "7.9.1"
+  resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-7.9.1.tgz#40f1c38e8f70d783851c13be78a7cb346891c15e"
+  integrity sha512-NfPADbm9tRK/4ohpm9+aBtJ8WPKQqQaReyBKT225pi2oKQO1IzRlfM+OPplAvbhoH1efrSj1NKk27L+4BCrzXQ==
   dependencies:
     debug "^4.1.1"
     decompress-response "^4.2.0"
-    into-stream "^5.1.0"
     ms "^2.1.1"
-    once "^1.4.0"
     pump "^3.0.0"
     secure-json-parse "^2.1.0"
 
@@ -5299,7 +5297,7 @@ fast-redact@^2.0.0:
   resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-2.0.0.tgz#17bb8f5e1f56ecf4a38c8455985e5eab4c478431"
   integrity sha512-zxpkULI9W9MNTK2sJ3BpPQrTEXFNESd2X6O1tXMFpK/XM0G5c5Rll2EVYZH2TqI3xRGK/VaJ+eEOt7pnENJpeA==
 
-fast-safe-stringify@^2.0.6, fast-safe-stringify@^2.0.7:
+fast-safe-stringify@^2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.7.tgz#124aa885899261f68aedb42a7c080de9da608743"
   integrity sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
@@ -5560,14 +5558,6 @@ fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
   integrity sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
-
-from2@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/from2/-/from2-2.3.0.tgz#8bfb5502bde4a4d36cfdeea007fcca21d7e382af"
-  integrity sha1-i/tVAr3kpNNs/e6gB/zKIdfjgq8=
-  dependencies:
-    inherits "^2.0.1"
-    readable-stream "^2.0.0"
 
 fs-constants@^1.0.0:
   version "1.0.0"
@@ -6438,14 +6428,6 @@ interpret@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
   integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
-
-into-stream@^5.1.0:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/into-stream/-/into-stream-5.1.1.tgz#f9a20a348a11f3c13face22763f2d02e127f4db8"
-  integrity sha512-krrAJ7McQxGGmvaYbB7Q1mcA+cRwg9Ij2RfWIeVesNBgVDZmzY/Fa4IpZUT3bmdRzMzdf/mzltCG2Dq99IZGBA==
-  dependencies:
-    from2 "^2.3.0"
-    p-is-promise "^3.0.0"
 
 invariant@^2.2.2:
   version "2.2.4"
@@ -8286,6 +8268,11 @@ minimist@^1.1.1, minimist@^1.2.0, minimist@~1.2.0:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
 
+minimist@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
+  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+
 minipass@^2.6.0, minipass@^2.8.6, minipass@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.9.0.tgz#e713762e7d3e32fed803115cf93e04bca9fcc9a6"
@@ -8931,11 +8918,6 @@ p-finally@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-finally/-/p-finally-2.0.1.tgz#bd6fcaa9c559a096b680806f4d657b3f0f240561"
   integrity sha512-vpm09aKwq6H9phqRQzecoDpD8TmVyGw70qmWlyq5onxY7tqyTTFVvxMykxQSQKILBSFlbXpypIw2T1Ml7+DDtw==
 
-p-is-promise@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/p-is-promise/-/p-is-promise-3.0.0.tgz#58e78c7dfe2e163cf2a04ff869e7c1dba64a5971"
-  integrity sha512-Wo8VsW4IRQSKVXsJCn7TomUaVtyfjVDn3nUP7kE967BQk0CwFpdbZs0X0uk5sW9mkBa9eNM7hCMaG93WUAwxYQ==
-
 p-limit@^1.1.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-1.3.0.tgz#b86bd5f0c25690911c7590fcbfc2010d54b3ccb8"
@@ -9237,15 +9219,14 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pino-elasticsearch@4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/pino-elasticsearch/-/pino-elasticsearch-4.4.0.tgz#6a0e230b2326290a92878d7135fb05ed0695315c"
-  integrity sha512-vGuHwxyBArIf0frwC0h7EuPbD8Tth+koFghFhJ8Wvh24AaYh+a/NbUBTxmJSqL4WIhunK7rZfoUp0WxtA+MZNw==
+pino-elasticsearch@5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/pino-elasticsearch/-/pino-elasticsearch-5.3.0.tgz#38a0d8c1bbbe696909ced4cb8543e3485dd749ac"
+  integrity sha512-jzU7dQ5W2DYGpVUHuyJkRcKnOsKucGrDSPJKl6Jz11SIPusroDV5JrCZ95QrLQ1bVA0bLdg4G4hBtijtGAB7nQ==
   dependencies:
-    "@elastic/elasticsearch" "^7.6.0"
+    "@elastic/elasticsearch" "^7.7.1"
     fast-json-parse "^1.0.3"
-    minimist "^1.2.0"
-    pino-to-ecs "^0.2.0"
+    minimist "^1.2.5"
     pump "^3.0.0"
     readable-stream "^3.6.0"
     split2 "^3.1.1"
@@ -9271,15 +9252,6 @@ pino-std-serializers@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.4.2.tgz#cb5e3e58c358b26f88969d7e619ae54bdfcc1ae1"
   integrity sha512-WaL504dO8eGs+vrK+j4BuQQq6GLKeCCcHaMB2ItygzVURcL1CycwNEUHTD/lHFHs/NL5qAz2UKrjYWXKSf4aMQ==
-
-pino-to-ecs@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/pino-to-ecs/-/pino-to-ecs-0.2.0.tgz#940a6d65c75bb7d5c4c3c36ee0df9cec8c81eb1c"
-  integrity sha512-hOiplNhglQQhsnSDdL8ziwR3aRrHJTls7OLZZc/klkghi1zEkHizArnXXfX+oFWstsO1oC2uZ59XG2TaidOAhA==
-  dependencies:
-    fast-safe-stringify "^2.0.6"
-    readable-stream "^3.4.0"
-    split2 "^3.1.1"
 
 pino@6.0.0:
   version "6.0.0"
