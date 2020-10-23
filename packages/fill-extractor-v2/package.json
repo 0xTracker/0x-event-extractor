@@ -5,6 +5,6 @@
   "main": "src/index.js",
   "dependencies": {
     "@0x-event-extractor/shared": "^1.0.0",
-    "@0x/contract-wrappers": "^12.1.0"
+    "@0x/contract-wrappers": "^13.0.0"
   }
 }
