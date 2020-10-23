@@ -16,7 +16,7 @@
     "lodash": "^4.17.15",
     "mongoose": "^5.7.3",
     "pino": "6.0.0",
-    "pino-elasticsearch": "4.4.0",
+    "pino-elasticsearch": "4.4.1",
     "promise-poller": "^1.9.1"
   }
 }

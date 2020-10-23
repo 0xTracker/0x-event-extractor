@@ -9237,10 +9237,10 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pino-elasticsearch@4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/pino-elasticsearch/-/pino-elasticsearch-4.4.0.tgz#6a0e230b2326290a92878d7135fb05ed0695315c"
-  integrity sha512-vGuHwxyBArIf0frwC0h7EuPbD8Tth+koFghFhJ8Wvh24AaYh+a/NbUBTxmJSqL4WIhunK7rZfoUp0WxtA+MZNw==
+pino-elasticsearch@4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/pino-elasticsearch/-/pino-elasticsearch-4.4.1.tgz#1d1224cefdac0fed65d6d1b2983b2f05afa915d3"
+  integrity sha512-vKWyxjUb2mVqE3Oa1iliEPX2bBAaT0ScK05exKxTsxqkgZqoIWLejAET+J1+n8mF8hziYQVLb/t3Bk2FzI4dTw==
   dependencies:
     "@elastic/elasticsearch" "^7.6.0"
     fast-json-parse "^1.0.3"
