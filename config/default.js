@@ -29,6 +29,9 @@ module.exports = {
       v2: 8140780,
       v3: 8952139,
     },
+    liquidityProviderSwap: {
+      v4: 11377457,
+    },
     logFill: {
       v1: 4145578,
     },
