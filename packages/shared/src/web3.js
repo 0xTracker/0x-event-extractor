@@ -15,6 +15,7 @@ const configure = ({ endpoint }) => {
   providerEngine = new Web3ProviderEngine();
   wrapper = new Web3Wrapper(providerEngine);
 
+  // TransformedERC20 events
   wrapper.abiDecoder.addABI([
     {
       anonymous: false,
@@ -51,6 +52,53 @@ const configure = ({ endpoint }) => {
         },
       ],
       name: 'TransformedERC20',
+      type: 'event',
+    },
+  ]);
+
+  // LiquidityProviderSwap events
+  wrapper.abiDecoder.addABI([
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'inputToken',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'outputToken',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'inputTokenAmount',
+          type: 'uint256',
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'outputTokenAmount',
+          type: 'uint256',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'provider',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'recipient',
+          type: 'address',
+        },
+      ],
+      name: 'LiquidityProviderSwap',
       type: 'event',
     },
   ]);
