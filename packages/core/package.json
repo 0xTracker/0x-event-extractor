@@ -6,6 +6,7 @@
     "@0x-event-extractor/fill-extractor-v1": "^1.0.0",
     "@0x-event-extractor/fill-extractor-v2": "^1.0.0",
     "@0x-event-extractor/fill-extractor-v3": "^1.0.0",
+    "@0x-event-extractor/limit-order-filled-extractor": "^1.0.0",
     "@0x-event-extractor/liquidity-provider-swap-extractor": "^1.0.0",
     "@0x-event-extractor/rfq-order-filled-extractor": "^1.0.0",
     "@0x-event-extractor/shared": "^1.0.0",

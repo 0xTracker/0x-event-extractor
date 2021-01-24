@@ -29,6 +29,9 @@ module.exports = {
       v2: 8140780,
       v3: 8952139,
     },
+    limitOrderFilled: {
+      v4: 11591021,
+    },
     liquidityProviderSwap: {
       v4: 11377457,
     },

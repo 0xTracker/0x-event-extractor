@@ -2,6 +2,7 @@ const { config } = require('@0x-event-extractor/shared');
 const fillExtractorV1 = require('@0x-event-extractor/fill-extractor-v1');
 const fillExtractorV2 = require('@0x-event-extractor/fill-extractor-v2');
 const fillExtractorV3 = require('@0x-event-extractor/fill-extractor-v3');
+const limitOrderFilledExtractor = require('@0x-event-extractor/limit-order-filled-extractor');
 const liquidityProviderSwapExtractor = require('@0x-event-extractor/liquidity-provider-swap-extractor');
 const rfqOrderFilledExtractor = require('@0x-event-extractor/rfq-order-filled-extractor');
 const sushiswapSwapExtractor = require('@0x-event-extractor/sushiswap-swap-extractor');
@@ -133,6 +134,7 @@ const extractEvents = async () => {
   await performExtraction(maxBlockNumber, transformedERC20Extractor);
   await performExtraction(maxBlockNumber, rfqOrderFilledExtractor);
   await performExtraction(maxBlockNumber, liquidityProviderSwapExtractor);
+  await performExtraction(maxBlockNumber, limitOrderFilledExtractor);
 
   const maxBlock = await getBlock(maxBlockNumber);
 
