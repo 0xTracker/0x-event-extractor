@@ -103,6 +103,65 @@ const configure = ({ endpoint }) => {
     },
   ]);
 
+  // RfqOrderFilled events
+  wrapper.abiDecoder.addABI([
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: 'bytes32',
+          name: 'orderHash',
+          type: 'bytes32',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'maker',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'taker',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'makerToken',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: 'takerToken',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'uint128',
+          name: 'takerTokenFilledAmount',
+          type: 'uint128',
+        },
+        {
+          indexed: false,
+          internalType: 'uint128',
+          name: 'makerTokenFilledAmount',
+          type: 'uint128',
+        },
+        {
+          indexed: false,
+          internalType: 'bytes32',
+          name: 'pool',
+          type: 'bytes32',
+        },
+      ],
+      name: 'RfqOrderFilled',
+      type: 'event',
+    },
+  ]);
+
   providerEngine.addProvider(new RPCSubprovider(endpoint));
   providerUtils.startProviderEngine(providerEngine);
 };
