@@ -29,17 +29,23 @@ module.exports = {
       v2: 8140780,
       v3: 8952139,
     },
+    limitOrderFilled: {
+      v4: 11591021,
+    },
     liquidityProviderSwap: {
       v4: 11377457,
     },
     logFill: {
       v1: 4145578,
     },
-    transformedErc20: {
-      v3: 10247094,
+    rfqOrderFilled: {
+      v4: 11591021,
     },
     sushiswapSwap: {
       v3: 1600834642, // Represents a point in time, not a block number
+    },
+    transformedErc20: {
+      v3: 10247094,
     },
     uniswapV2Swap: {
       v3: 1600834642, // Represents a point in time, not a block number
