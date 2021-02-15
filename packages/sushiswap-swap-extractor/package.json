@@ -7,6 +7,6 @@
     "@0x-event-extractor/shared": "^1.0.0",
     "@0x/utils": "5.5.1",
     "graphql": "15.3.0",
-    "graphql-request": "3.1.0"
+    "graphql-request": "3.2.0"
   }
 }
