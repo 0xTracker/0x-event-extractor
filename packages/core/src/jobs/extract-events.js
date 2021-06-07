@@ -8,6 +8,7 @@ const rfqOrderFilledExtractor = require('@0x-event-extractor/rfq-order-filled-ex
 const sushiswapSwapExtractor = require('@0x-event-extractor/sushiswap-swap-extractor');
 const transformedERC20Extractor = require('@0x-event-extractor/transformed-erc20-extractor');
 const uniswapV2Extractor = require('@0x-event-extractor/uniswap-v2-swap-extractor');
+const uniswapV3Extractor = require('@0x-event-extractor/uniswap-v3-swap-extractor');
 
 const { getLogger } = require('../util/logging');
 const BlockRange = require('../model/block-range');
@@ -139,6 +140,7 @@ const extractEvents = async () => {
   const maxBlock = await getBlock(maxBlockNumber);
 
   await performExtraction(maxBlock.timestamp, uniswapV2Extractor);
+  await performExtraction(maxBlock.timestamp, uniswapV3Extractor);
   await performExtraction(maxBlock.timestamp, sushiswapSwapExtractor);
 
   logger.info('finished event extraction');

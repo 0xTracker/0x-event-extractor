@@ -13,6 +13,9 @@ module.exports = {
     uniswapV2Swap: {
       v3: 1800, // 30 minutes
     },
+    uniswapV3Swap: {
+      v3: 1800, // 30 minutes
+    },
   },
   maxPollingInterval: parseInt(process.env.MAX_POLLING_INTERVAL, 10),
   minConfirmations: 12,
@@ -49,6 +52,9 @@ module.exports = {
     },
     uniswapV2Swap: {
       v3: 1600834642, // Represents a point in time, not a block number
+    },
+    uniswapV3Swap: {
+      v3: 1622629214, // Represents a point in time, not a block number
     },
   },
   web3: {
