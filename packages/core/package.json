@@ -17,7 +17,7 @@
     "@bugsnag/js": "6.5.2",
     "bugsnag": "^2.4.3",
     "delay": "^4.3.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mongoose": "^5.7.3",
     "pino": "6.0.0",
     "pino-elasticsearch": "4.4.0",
