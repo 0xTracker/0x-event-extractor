@@ -13,6 +13,7 @@
     "@0x-event-extractor/sushiswap-swap-extractor": "^1.0.0",
     "@0x-event-extractor/transformed-erc20-extractor": "^1.0.0",
     "@0x-event-extractor/uniswap-v2-swap-extractor": "^1.0.0",
+    "@0x-event-extractor/uniswap-v3-swap-extractor": "^1.0.0",
     "@bugsnag/js": "6.5.2",
     "bugsnag": "^2.4.3",
     "delay": "^4.3.0",
