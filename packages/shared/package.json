@@ -5,7 +5,7 @@
   "dependencies": {
     "@0x/subproviders": "^5.0.4",
     "@0x/utils": "^4.5.2",
-    "@0x/web3-wrapper": "^6.0.13",
+    "@0x/web3-wrapper": "^7.0.0",
     "lodash": "^4.17.15"
   }
 }
