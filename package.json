@@ -24,7 +24,7 @@
     "jest": "26.6.1",
     "lint-staged": "9.4.2",
     "nodemon": "2.0.2",
-    "pino-pretty": "3.6.1",
+    "pino-pretty": "4.3.0",
     "prettier": "1.19.1"
   },
   "private": true,
